@@ -1,0 +1,61 @@
+```json
+{
+    "opportunity_overview": {
+        "title": "Enterprise Data Analytics and Artificial Intelligence Support Services",
+        "solicitation_number": "75D301-26-R-00142",
+        "notice_type": "Combined Synopsis/Solicitation",
+        "agency": "Department of Health and Human Services (HHS)",
+        "office": "Centers for Medicare & Medicaid Services (CMS)",
+        "posted_date": "April 14, 2026",
+        "response_deadline": "May 16, 2026, 2:00 PM Eastern Time"
+    },
+    "contract_details": {
+        "naics_code": "541512 — Computer Systems Design Services",
+        "psc_code": "D310 — IT and Telecom - Cyber Security and Data Backup",
+        "contract_type": "Indefinite Delivery/Indefinite Quantity (IDIQ) with Time and Materials (T&M) task orders",
+        "set_aside": "Unrestricted (Full and Open Competition)",
+        "estimated_value": "$75,000,000 aggregate ceiling over the 5-year ordering period (IDIQ ceiling, not guaranteed minimum)",
+        "period_of_performance": "Base Period: 12 months from date of award; Option Year 1: 12 months; Option Year 2: 12 months; Option Year 3: 12 months; Option Year 4: 12 months; Total potential period: 5 years",
+        "place_of_performance": "Primary: CMS Headquarters, 7500 Security Blvd, Baltimore, MD 21244; Secondary: Contractor facility within the continental United States; Hybrid telework authorized up to 3 days per week remote for non-key personnel"
+    },
+    "requirements_summary": {
+        "scope_overview": "CMS is seeking a contractor to modernize its fragmented legacy data analytics infrastructure and build enterprise AI/ML capabilities across the organization. Work spans cloud migration to AWS GovCloud, implementation of a unified data lakehouse architecture, development of fraud/waste/abuse detection models, NLP pipelines, predictive analytics, and executive dashboards. The contractor must also maintain existing ETL/ELT pipelines processing over 2 billion claims records annually and provide 24/7 production support with a 99.9% uptime SLA.",
+        "key_requirements": [
+            "Migrate existing analytics workloads from on-premises infrastructure to CMS Cloud (AWS GovCloud)",
+            "Design and implement a unified data lakehouse architecture (e.g., Databricks, Snowflake, or equivalent)",
+            "Establish data governance frameworks including metadata management, data quality monitoring, and lineage tracking",
+            "Implement role-based access controls with compliance to HIPAA, FedRAMP High, and CMS Acceptable Risk Safeguards (ARS)",
+            "Develop and deploy ML models for fraud, waste, and abuse (FWA) detection across Medicare and Medicaid claims data",
+            "Build NLP pipelines for automated review of clinical documentation, appeals, and provider correspondence",
+            "Create predictive models for beneficiary risk stratification and care management",
+            "Implement responsible AI practices consistent with OMB M-24-10 and the NIST AI Risk Management Framework",
+            "Evaluate and pilot large language model (LLM) applications for internal CMS use cases",
+            "Develop executive dashboards and self-service reporting tools (Tableau, Power BI, or equivalent)",
+            "Create automated reporting pipelines for congressionally mandated reports",
+            "Support ad hoc data requests from CMS leadership, OIG, and congressional offices",
+            "Maintain and optimize existing ETL/ELT pipelines processing over 2 billion claims records annually",
+            "Implement DataOps practices including CI/CD for data pipelines, automated testing, and monitoring",
+            "Provide 24/7 production support for mission-critical analytics systems with a 99.9% uptime SLA",
+            "Contractor must maintain a SOC 2 Type II certification"
+        ],
+        "clearance_requirements": "Public Trust clearance (Tier 2 investigation) required for all personnel prior to accessing CMS systems. Key personnel must hold an active Public Trust clearance at time of award. Personnel accessing PHI must complete annual HIPAA training and sign Business Associate Agreements.",
+        "key_personnel": "Four designated key personnel roles required at time of proposal submission: (1) Program Manager — minimum 10 years managing large-scale federal healthcare IT programs, PMP or equivalent certification, active Public Trust clearance; (2) Chief Data Scientist — Ph.D. or Master's in Computer Science, Statistics, Data Science or related field, minimum 8 years ML/AI experience in healthcare or public sector, demonstrated responsible AI and bias mitigation experience; (3) Cloud Architecture Lead — AWS Solutions Architect Professional certification or equivalent, minimum 8 years designing cloud data platforms in FedRAMP High environments, HIPAA-compliant architecture experience; (4) Data Engineering Lead — minimum 8 years in data engineering with distributed computing expertise (Spark, Flink, or equivalent), experience processing healthcare claims data at scale (1B+ records)."
+    },
+    "evaluation_criteria": {
+        "evaluation_method": "Best Value Tradeoff",
+        "factors": [
+            "Factor 1 (Most Important): Technical Approach — understanding of CMS data environment, proposed modernization architecture, AI/ML methodology and responsible AI practices, innovation in LLM integration",
+            "Factor 2 (Important): Management Approach — program management methodology, risk mitigation, staffing plan and key personnel qualifications, quality assurance, transition plan from incumbent",
+            "Factor 3 (Important, approximately equal to Factor 2): Past Performance — federal healthcare data analytics experience, demonstrated AI/ML delivery at scale, references from federal healthcare agencies",
+            "Factor 4 (Less Important than non-price factors combined): Price — proposed labor rates by category, rate escalation methodology for option years, price reasonableness and realism analysis"
+        ],
+        "notes": "The solicitation explicitly states that Management Approach and Past Performance are approximately equal in importance. The Government reserves the right to award to other than the lowest-priced offeror if non-price factors justify the price premium. Price realism analysis will be conducted, which is notable for a T&M contract type and warrants attention in pricing strategy."
+    },
+    "competitive_intelligence": {
+        "incumbent": "Accenture Federal Services",
+        "predecessor_contract": "Contract No. 75FCMC-20-D-0003 (Enterprise Analytics Support contract, expires September 30, 2026)",
+        "estimated_competition": "Full and Open Competition (Unrestricted), meaning large and small businesses may compete. The $75M ceiling and complexity of requirements (FedRAMP High, healthcare AI/ML at scale, 2B+ claims records, SOC 2 Type II) favor large integrators or well-resourced mid-tier firms. Incumbent Accenture Federal Services has a significant knowledge advantage. High likelihood of competition from major federal IT integrators (e.g., Leidos, Booz Allen Hamilton, Deloitte, SAIC, ICF) as well as specialized data/AI firms.",
+        "notable_terms": "PSC code D310 (Cyber Security and Data Backup) appears misaligned with the actual scope of work, which is primarily data analytics and AI/ML services — BD teams should verify this does not create eligibility or classification issues. SOC 2 Type II certification is required of the contractor organization, which is an unusual corporate-level requirement that may disqualify firms without existing certification. The 99.9% uptime SLA for a T&M contract type is atypical and introduces performance risk — T&M contracts typically do not impose outcome-based SLAs. No guaranteed minimum order value is stated for the IDIQ, which is a standard but notable risk. Key personnel must hold active Public Trust at time of award, which requires advanced planning for clearance processing. Responsible AI requirements reference OMB M-24-10 and NIST AI RMF, indicating the government will scrutinize AI governance maturity."
+    },
+    "bd_action_items": {
+        "pursuit_recommendation": "Best positioned: Large federal IT integrators or mid-tier firms with demonstrated federal healthcare data analytics experience, active AWS GovCloud delivery capabilities, existing FedRAMP High ATO experience, and proven AI/ML delivery for HHS or similar agencies. Firms must have or be able to rapidly obtain SOC 2 Type II certification. Small businesses face significant barriers given the unrestricted set-aside, $75M ceiling, and technical complexity — teaming as a subcontractor under a large prime may be a viable path. Incumbent Accenture Federal Services is strongly positioned; any challenger must demonstrate a compelling differentiated

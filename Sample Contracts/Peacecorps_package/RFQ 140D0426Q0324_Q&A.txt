@@ -1,0 +1,1151 @@
+RFQ 140D0426Q0324 
+Amendment 1 
+Contractor Questions and Government Response 
+1. We would love to build the AI ChatBot for the Peace Corps and wanted to participate in this 
+project as we specialize on AI and can work with flexible financial arrangements. To do so 
+you only need us to submit a quote with the price to these same email addresses for the 
+period June 01, 2026, to May 31, 2027?  
+Response:  Please follow the Request for Quote (RFQ) instructions “SECTION 4 – 
+QUOTATION PREPARATION & SUBMISSION INSTRUCTIONS”. 
+Per Section1- Instructions “The period of performance for this Purchase Order will consist of 
+a one-year Base Period estimated to begin on June 1, 2026, followed by four (4) one-year 
+Option Periods, as outlined in the table below. If all options are exercised, the total period of 
+performance will no exceed five (5) years. Continued performance under this Purchase Order 
+is contingent upon the availability of funds and the Contractor’s acceptable level of 
+performance. 
+• Base Period: June 01, 2026, to May 31, 2027 
+• Option Period 1: June 01, 2027, to May 31, 2028 
+• Option Period 2: June 01, 2028, to May 31, 2029 
+• Option Period 3: June 01, 2029, to May 31, 2030 
+• Option Period 4: June 01, 2030, to May 31, 2031 
+2. Do you have a budget for this project?  
+Response: Yes, a budget has been allocated for this project. However, the specific budget 
+details will not be publicly disclosed. 
+3. PAST PERFORMANCE – KEY PERSONNEL: Would the Government consider key 
+personnel past performance — in addition to corporate past performance — when evaluating 
+Factor B for an emerging small business? 
+Response: Yes 
+4. FEDRAMP AUTHORIZATION: Section 1.3 requires a commercially available SaaS 
+conversational AI solution authorized at the FedRAMP High level. Could the Government 
+confirm whether it is sufficient that the proposed SaaS platform itself — rather than the 
+contractor — holds the current and active FedRAMP High authorization? 
+Response: The proposed solution must have or be in the process of obtaining a FedRAMP 
+High designation. Operating on a FedRAMP designated platform does not adequately secure 
+the solution. The designation is for the solution, not the contractor.  
+Page 1 of 33 
+RFQ 140D0426Q0324 
+Amendment 1 
+Contractor Questions and Government Response 
+5. RAG DATASET ACCESS: To ensure accurate, hallucination-free conversational AI 
+responses grounded solely in Peace Corps content, could the Government clarify whether the 
+contractor will be provided administrative access to peacecorps.gov content systems to 
+support knowledge dataset ingestion — or will Peace Corps provide content in an agreed
+upon format during the requirements phase? 
+Response: Peace Corps will access content systems when and where appropriate and will 
+provide agreed content in an agreed upon format when otherwise necessary. 
+6. The PWS places strong emphasis on RAG governance, continuous learning with 
+human‑in‑the‑loop, performance optimization (response quality vs. computational cost), 
+analytics/KPI dashboards, escalation logic, and AI accountability and traceability. 
+Could you please confirm whether specialized subcontractors providing these capabilities, 
+separate from the FedRAMP‑High chatbot platform provider, are within the anticipated 
+scope of acceptable team structures for this effort? 
+Response: Prospective vendors may propose a staffing approach that includes subcontractors. 
+Small business vendors must provide the majority (>50%) of the labor as the prime 
+contractor. Note that FedRAMP High designation is with the solution, not the provider, 
+7. "The Peace Corps seeks a FedRAMP High authorized, commercially available SaaS 
+conversational AI solution (“Chatbot”) to enhance recruitment, outreach, and public 
+engagement across peacecorps.gov. " 
+Given the purpose of the solution is to provide generative AI responses around publicly 
+available material (stated as recruitment, outreach,  public engagement, and peacecorps.gov), 
+why is there a need for a FedRAMP High environment? That environment is typically 
+reserved for sensitive or higher classification of content, and these materials are already in 
+the public domain. 
+Response: FedRAMP High Authorization is required for the solution. There is a high 
+probability of Users entering unsolicited HIPAA protected information and other sensitive 
+PHI/PII in the course of their interactions with the Chatbot. 
+8. Please share incumbent's contract # and name (if applicable) unless it is a new contract? 
+Response: Not Applicable. This is a new requirement. 
+9. If there is an incumbent contractor, could you please identify any areas where the scope of 
+work has increased or decreased compared to the incumbent effort? If there are increases, 
+please specify the additional tasks; if there are decreases, please identify the tasks that have 
+been removed. 
+Response: Not Applicable. 
+Page 2 of 33 
+RFQ 140D0426Q0324 
+Amendment 1 
+Contractor Questions and Government Response 
+10. If there is an incumbent, could you please provide the current labor mix, including the 
+number of full-time versus part-time personnel and the labor categories (LCATs) supporting 
+the effort? 
+Response: Not Applicable. 
+11. Beyond the provision of a FedRAMP High SaaS-based AI chatbot solution, can the 
+Government please clarify the expected scope of professional services to be included (e.g., 
+implementation, integration, configuration, training, content curation for RAG, ongoing 
+support, and optimization)? 
+Response: Please refer to the PWS. 
+12. Can Government clarify the required number of personnel (e.g., team size or FTEs), in 
+addition to any preferred labor categories (LCATs) and estimated level of effort (hours)? 
+Response: Prospective vendors should propose the staffing approach and level of effort 
+needed to fulfill the requirements in the proposed technical approach.  
+13. Does the Government have a preference for any specific SaaS-based conversational AI 
+platforms (e.g., Oracle Digital Assistant, Salesforce Agentforce, or Microsoft Copilot Studio 
+for Government), particularly those with FedRAMP High authorization, that should be 
+considered for alignment or compatibility? 
+Response: No. 
+14. Are there existing tools or platforms currently used by Peace Corps staff for handling live 
+interactions, or should offerors propose a complete solution for agent routing, queue 
+management, and escalation? 
+Response: Offerors should propose a complete solution for agent routing, queue management 
+and escalation. 
+15. To what extent is the contractor expected to manage ongoing model training, tuning, and 
+updates versus enabling Peace Corps staff to independently manage these functions? 
+Response: During the implementation portion of the project, with Tier 3 support when 
+necessary. 
+Page 3 of 33 
+RFQ 140D0426Q0324 
+Amendment 1 
+Contractor Questions and Government Response 
+16. To confirm our understanding, the chatbot solution is expected to integrate with both (1) the 
+Peace Corps public website (peacecorps.gov) and (2) the agency’s existing CRM/marketing 
+system. Can the Government confirm if this understanding is correct and provide details on 
+the current CRM/marketing technology stack to support integration planning? 
+Response: Initial implementation of the Chatbot does not require direct integration to the 
+Agency’s CRM, that is dependent upon the respondents’ proposed solution, given 
+requirements. 
+17. The RFQ indicates a Firm-Fixed-Price (FFP) structure; however, SaaS-based conversational 
+AI solutions are often priced using usage-based models (e.g., per interaction, session, or 
+user). Can the Government please clarify how offerors should structure pricing under an FFP 
+model given the variability in projected user engagement and anticipated growth? 
+Response: The government is aware that conversational AI models are typically usage-based 
+pricing. When calculating cost, respondents will need to account for this and all other 
+variable factors and build it into their pricing model. 
+18. For pricing purposes, can the Government confirm whether it is acceptable for offerors to 
+propose SaaS-based AI chatbot licensing costs as direct pass-through costs (without markup), 
+while pricing associated labor and professional services (e.g., implementation, integration, 
+and support) under a Firm-Fixed-Price (FFP) structure? 
+Response: Respondents are expected to provide a firm fixed price (FFP) for the period of 
+performance. They may structure their pricing according to whatever costs are incurred. 
+19. The solicitation references a requirement for a "FedRAMP High authorized, commercially 
+available SaaS" solution. Does this requirement apply specifically to the chatbot application 
+itself holding an independent FedRAMP High Authority to Operate (ATO), or would a 
+solution deployed and operated on FedRAMP High authorized infrastructure (e.g., AWS 
+GovCloud) satisfy this requirement? 
+Response: The requirement applies to the solution including the chatbot application and 
+platform infrastructure. 
+20. Would the Government consider a solution that is currently in the FedRAMP authorization 
+process and can demonstrate compliance with FedRAMP High security controls through 
+documentation and third-party assessment, with full ATO anticipated during the base 
+performance period? 
+Response: A solution that is in-process for a FedRAMP high impact designation would be 
+acceptable. 
+Page 4 of 33 
+RFQ 140D0426Q0324 
+Amendment 1 
+Contractor Questions and Government Response 
+21. The PWS references integration with the Peace Corps website (peacecorps.gov). Can the 
+Government provide information about the current content management system (CMS) 
+platform and any existing APIs or integration points that the chatbot solution would need to 
+interface with? 
+Response: For information regarding Peace Corps current CMS please refer to the PWS. The 
+respondent’s solution needs to be available on Peace Corps’ website, so that someone surfing 
+on peacecorps.gov can interact with it easily and seamlessly, all other integrations are 
+dependent upon the requirements of the respondent’s solution. 
+22. Is FedRAMP High required; is FedRAMP 20x acceptable? 
+• Would a letter of engagement from Vanta be acceptable? 
+• If a letter of engagement is acceptable, how close do we need to be in the FedRAMP 
+framework? For example, could we be FedRAMP High 3 months from the end of the 
+Base Period of May 31st, 2027? 
+Response: The solution must be in-process for the FedRAMP High impact designation. The current 
+FedRAMP (rev 5) process requires the identification of a Federal Agency sponsor. FedRAMP 20x 
+is not scheduled to be piloted for high impact authorizations until FY27.  
+23. Would a quote with a pricing structure of $150k/yr + $10/hr with conversations billed by the 
+minute make sense? 
+Response: The respondent should create their price quote based on whatever costs they incur. 
+24. We are a small veteran owned business, however that status is in processing, is that 
+acceptable?  
+Response: Only small businesses will be considered for competition under this requirement. 
+Firms that are not certified at the time of quote submission will not be eligible for 
+consideration. 
+25. The PWS references FedRAMP High authorization, while later sections reference FedRAMP 
+Moderate baseline controls. Can the Government clarify the required FedRAMP 
+authorization level for this effort? 
+Response: FedRAMP High authorization is required. 
+26. Does the requirement for FedRAMP authorization apply to the entire solution, or to the 
+hosting environment in which the solution operates? 
+Response: The FedRAMP requirement applies to the solution including the chatbot 
+application and platform infrastructure. 
+Page 5 of 33 
+RFQ 140D0426Q0324 
+Amendment 1 
+Contractor Questions and Government Response 
+27. Can the Government clarify whether it intends to provide and manage the underlying 
+AI/LLM services for this solution, or if the contractor is expected to include AI model usage 
+and associated costs as part of the proposed solution? 
+Response: Respondent is expected to include the AI model usage and associated costs as part 
+of the proposed solution. 
+28. If the Government provides the AI/LLM capability, should contractors assume that all model 
+usage (for example, inference or query costs) will be managed and funded by the 
+Government? 
+Response: Respondent is expected to include the AI model usage and associated costs as part 
+of the proposed solution. 
+29. The solicitation references a commercially available SaaS solution. Can the Government 
+clarify whether solutions must be fully vendor-hosted SaaS, or if solutions that include 
+hybrid or Government-hosted components are acceptable? 
+Response: Solutions that include hybrid or government-hosted components are acceptable. 
+30. Will the Government provide an existing cloud environment for this effort, or should the 
+contractor include all required hosting infrastructure in their solution? 
+Response: Prospective vendors should propose the solution including hosting infrastructure 
+architecture requirements. 
+31. Can the Government provide additional details on existing systems that the chatbot must 
+integrate with, including CRM or other communication platforms? 
+Response: The respondent’s solution needs to be available on Peace Corps website, so that someone 
+surfing on peacecorps.gov can interact with it easily and seamlessly, all other integrations are 
+dependent upon the requirements of the respondent’s solution. Peace Corps will provide a technical 
+point of contact whenever necessary throughout the development and implementation processes. 
+Initial implementation of the Chatbot does not require direct integration with the Agency’s 
+CRM, that is dependent upon the respondent’s proposed solution, given requirements. 
+32. The PWS references live agent escalation and queue management. Can the Government 
+clarify expectations regarding staffing availability, service hours, and whether the contractor 
+is responsible for providing queue management logic or if this will align with existing 
+Government processes? 
+Response: Live agents will be available 15 hours a day, and are already under contract and 
+internal to Peace Corps. The contractor is responsible for providing queue management logic 
+and escalation to these live agents. 
+Page 6 of 33 
+RFQ 140D0426Q0324 
+Amendment 1 
+Contractor Questions and Government Response 
+33. Can the Government clarify whether there are existing AI governance policies, review 
+processes, or approval workflows that the chatbot solution must integrate with or support? 
+Response: The use case for the chatbot has already been reviewed and accepted by the 
+Agency. The RFQ reflects the requirements for the solution. 
+34. Will the Government provide an initial curated dataset for the chatbot’s knowledge base, or 
+is the contractor expected to develop and structure this dataset as part of the solution? 
+Response: The Peace Corps will provide all initial data for the RAG as GFI, the respondent’s 
+solution must include structure and the capability for continued development and curation of 
+the RAG. 
+35. Can the Government clarify expectations for ownership of chatbot interaction data, 
+knowledge base content, and any derived data artifacts, as well as any required formats for 
+data export at contract completion? 
+Response: All collected data will belong to the government. For data export, CSV format is required. 
+For reporting, presentable formats such as Word or PDF are preferred, but not required, and will be 
+taken into consideration when evaluating responses and making a Best Value determination.   
+36. Can the Government provide expectations for peak concurrent users or interaction volumes 
+to inform system sizing and performance planning? 
+Response: Please refer to section ‘2.2 Scope’ of the PWS. 
+37. The PWS outlines a series of design, development, and deployment activities following 
+contract award. Can the Government clarify expectations regarding initial operating 
+capability at the start of the period of performance? Specifically, is the contractor expected to 
+provide a fully operational solution at contract start, or is a phased implementation and 
+configuration period anticipated prior to full deployment? 
+Response: Contractor is expected to deploy a fully operational solution upon completion of 
+the development phase of project. 
+38. Can the Government clarify expectations for post-deployment support, including the 
+anticipated level of ongoing contractor involvement (e.g., full-time vs. part-time support) 
+after the chatbot solution is implemented and Peace Corps staff are trained? 
+Response: Post-deployment, the contractor is expected to provide tier 3 support for their 
+solution, with Peace Corps providing all other necessary support.   
+Page 7 of 33 
+RFQ 140D0426Q0324 
+Amendment 1 
+Contractor Questions and Government Response 
+39. Could you please confirm whether the evaluation will be conducted using a Best Value 
+Tradeoff approach or Lowest Price Technically Acceptable (LPTA)?  
+Response: As stated in Section 5 of the RFQ, the Government will make an award using a 
+Best Value Tradeoff determination. 
+40. What CRM platform does Peace Corps currently use for recruitment and marketing 
+automation? 
+Response: Peace Corps uses a highly customized version of the Click (Dimensions) managed 
+solution installed directly into their on-premise Dynamics CRM 8.2 environment (currently 
+upgrading to 9.1) 
+41. What cloud infrastructure provider(s) does Peace Corps currently use (e.g., AWS, Azure, 
+Google Cloud)? 
+Response: Prospective vendors should propose the solution architecture including hosting 
+infrastructure requirements. 
+42. Are there any existing integrations or platforms the chatbot solution should be compatible 
+with beyond the Django/Wagtail CMS? 
+Response: The Chatbot shall be solution agnostic and work with current and future 
+peacecorps.gov architecture. 
+43. Please confirm whether offerors are required to submit proposals as five separate volumes as 
+outlined below: 
+• Volume I – Technical (20-page limit) 
+• Volume II – Past Performance (no page limit) 
+• Volume III – Assumptions, Conditions, or Exceptions (no page limit) 
+• Volume IV – Draft Quality Assurance Surveillance Plan (no page limit) 
+• Volume V – Price (no page limit) 
+Response: Offerors are required to submit their quotations as five separate volumes in accordance 
+with the RFQ submission requirements. Please ensure your submission follows the format and 
+includes all required elements outlined in the RFQ. Quotations that do not meet these requirements 
+may not be considered. 
+Page 8 of 33 
+RFQ 140D0426Q0324 
+Amendment 1 
+Contractor Questions and Government Response 
+44. Submission Format Clarification: Are we required to submit two separate files, one for the 
+Technical Proposal, and one for the Price Proposal, or should all volumes (Volumes I–V) be 
+submitted separately as individual files? Please confirm. 
+• Reference:4.2.1 Format for Quotes 
+• Volume I – Technical (20-page limit) 
+• Volume II – Past Performance (no page limit) 
+• Volume III – Assumptions, Conditions, or Exceptions (no page limit) 
+• Volume IV – Draft Quality Assurance Surveillance Plan (no page limit) 
+• Volume V – Price (no page limit)  
+Response: Please see answer to question 43. 
+45. Page Limit Clarification: Do the cover letter and table of contents count towards the 20
+page limit for Volume I (Technical Proposal)?  
+Response: No, they do not. 
+46. For the requirement that the solution be FedRAMP High authorized, can the Government 
+clarify whether this requirement must be met by the prime contractor’s offering specifically, 
+or if it may be satisfied at the overall solution level, including through a subcontractor
+provided FedRAMP High authorized platform as part of a team-based approach? 
+Response: The FedRAMP requirement applies to the solution including the chatbot application and 
+platform infrastructure. Some controls can be inherited from the platform as part of the solution 
+FedRAMP designation. The solution may be provided by the vendor team, but should be included 
+in the prime contractor’s quote. 
+47. Can the Government clarify the expected level of integration with existing systems (e.g., 
+CRM, CMS, or other recruitment platforms), and whether APIs or existing middleware are 
+preferred? 
+Response: Respondents should provide whatever solution will best meet the government’s 
+requirements provided in the PWS, given a Best Value Tradeoff determination. 
+48. Can the Government clarify expectations around knowledge base ownership and 
+management, including whether Peace Corps staff are expected to directly manage and 
+update the dataset used for AI responses? 
+Response: After deployment and training, Peace Corps staff are expected to directly manage and 
+update the RAG dataset. 
+Page 9 of 33 
+RFQ 140D0426Q0324 
+Amendment 1 
+Contractor Questions and Government Response 
+49. Are there specific systems currently used for live agent engagement or case management that 
+the solution should integrate with for escalation workflows? 
+Response: Peace Corps does not currently have a system for live agent engagement or case 
+management. There is currently an internal team of 10 contractors processing general inquiries from 
+leads and other members of the public for the Office of Recruitment. This team will act as the first 
+tier of support for live escalations from the Chatbot, although in certain cases the Chatbot will need 
+to escalate to other offices or groups of people. 
+50. Can the Government clarify the primary success metrics for this solution (e.g., lead 
+generation, applicant conversion, reduction in staff workload, or response accuracy)? 
+Response: This project is Peace Corps first implementation of a conversational AI agent, and 
+although Peace Corps expects increased lead and application conversion, and a reduction in 
+staff workload, initially, success metrics will be based on the solution’s accuracy, and ability 
+to answer questions, offer guidance and appropriately route Users to the correct person or 
+office. 
+51. Can the Government provide any additional guidance on expected chatbot usage volumes or 
+peak traffic scenarios beyond what is included in the solicitation? 
+Response: The data provided in the PWS is the best indicators Peace Corps has of expected 
+use.  
+52. Is there a target timeline for initial deployment and full rollout beyond the period of 
+performance start date? 
+Response: That is up to the respondent to establish, but the government will take that into 
+consideration when evaluating responses and making a Best Value Tradeoff determination. 
+53. Please confirm whether the cover page and table of contents count toward the 20-page limit 
+for Volume I.  
+Response: They do not count towards the 20-page limit. 
+54. Please confirm the acceptable file format(s) for quote submission (e.g., PDF, Word).  
+Response: PDF and Word formats are acceptable for quote submission, provided that all 
+instructions and formatting requirements outlined in the RFQ are followed. 
+55. Has the Peace Corps established a budget ceiling or independent government cost estimate 
+(IGCE) for this effort, either for the base year or the full five-year period of performance? 
+Response: Yes, for both the base year and the full period of performance. 
+Page 10 of 33 
+RFQ 140D0426Q0324 
+Amendment 1 
+Contractor Questions and Government Response 
+56. Does the Peace Corps have a preferred pricing model (e.g., annual SaaS subscription, per
+user licensing, per-interaction), or are vendors free to propose the structure they believe best 
+fits the solution? 
+Response: Vendors are free to propose the FFP structure they believe best fits the solution. 
+57. What are the primary pain points or challenges Peace Corps staff currently experience in 
+managing public inquiries and recruiter interactions that this Chatbot is expected to address? 
+Response: Members of the public ask many of the same questions repeatedly, despite information 
+being provided on the website and elsewhere. The Chatbot’s first duty will be to satisfactorily 
+answer all queries that do not require human intervention. After that, the Chatbot must successfully 
+route inquiries to the correct office and person, whether it’s a general question that needs a human 
+response or a very specific, possibly urgent, need that requires immediate, specific attention. 
+58. Does the Peace Corps have a target go-live date in mind, or is the implementation timeline 
+expected to be finalized collaboratively after award? 
+Response: The sooner the better, but not at the cost of quality or capability. This timeline should be 
+included in the response and will be evaluated by the government as part of a Best Value Tradeoff 
+determination. 
+59. Does the Peace Corps have a target or estimated number of monthly chatbot interactions it 
+expects the solution to handle? The PWS references current website traffic but notes 
+engagement will "dramatically increase" — any directional guidance on expected volume 
+would help vendors propose an appropriately scaled solution. 
+Response: Peace Corps has provided whatever information it can, given the data on hand and no 
+prior experience with public facing conversational AIs. The respondents must take this into account 
+when estimating use rates and other forms of traffic.   
+60. Section 3.1.4 states the RAG dataset is estimated between 1,000 and 10,000 pages. Will the 
+Peace Corps provide the source documents and internal content to populate the RAG, or is 
+the Contractor expected to gather and structure this content independently? 
+Response: Peace Corps will provide all sources of information, both internal and external, for 
+populating the RAG. The contractor is expected to provide structure for the content in the RAG, 
+whatever form that takes. 
+Page 11 of 33 
+RFQ 140D0426Q0324 
+Amendment 1 
+Contractor Questions and Government Response 
+61. Please confirm whether vendors may structure their price submission however they see fit, as 
+long as a total price for the full period of performance is provided. 
+Response: Respondents are expected to provide a firm fixed price (FFP) price quote for the base 
+period of performance and each option period. They may structure their pricing according to 
+whatever costs are incurred. 
+62. Is Attachment 2 only included for reference purposes, or does anything in that attachment 
+need to be completed for the submission? 
+Response: As stated in the solicitation, “The contractor shall also submit a report (Attachment 2) to 
+the Contracting Officer 60 days prior to the end of the base period and all option periods”. \ 
+63. Does the Standard Form 1449 attachment need to be included with the submission, or is this 
+only for reference?  
+Response: The Standard Form 1449 attachment is for internal documentation and reference 
+purposes only and does not need to be included with your quote submission. 
+64. FedRAMP Authorization Level — High vs. Moderate: The Performance Work Statement 
+(PWS), Section 3.1.1 requires a "FedRAMP High Authorization" approved SaaS solution. 
+However, PWS Section 6.1 states that the Contractor shall implement controls for 
+"FedRAMP Cloud Computing Security Requirements Baseline and FedRAMP Continuous 
+Monitoring Requirements for Moderate impact systems (as defined in FIPS PUB 199)." 
+These two requirements are in direct conflict. Please clarify: Is the required FedRAMP 
+authorization level High or Moderate? If FedRAMP High is required, please confirm that 
+FedRAMP Moderate authorized solutions will not be considered. Background: FedRAMP 
+High and Moderate represent materially different security baselines and significantly 
+different pools of commercially available SaaS chatbot solutions. Clarification is essential to 
+determine compliance eligibility and to structure a compliant technical approach. 
+Response: The solution must be for the FedRAMP High impact designation. FedRAMP Moderate 
+designated solutions will not be considered. 
+Page 12 of 33 
+RFQ 140D0426Q0324 
+Amendment 1 
+Contractor Questions and Government Response 
+65. FedRAMP Authorization: Section 1.3 and PWS 3.1.1 both reference a "FedRAMP High 
+authorized, commercially available SaaS conversational AI solution." We want to confirm 
+our understanding of this requirement. Would the Government accept a solution where the 
+underlying cloud service provider holds a FedRAMP High authorization (e.g., Google Cloud, 
+Azure Government) and the agency issues an ATO for the specific application layer ― or 
+must the chatbot product itself carry an independent FedRAMP High Marketplace listing 
+prior to award? Background: The RFQ requires a "FedRAMP High authorized, commercially 
+available SaaS conversational AI solution." The question we're submitting is whether that 
+means the chatbot product itself needs a standalone FedRAMP High Marketplace listing, or 
+whether building on a FedRAMP High-authorized cloud with an agency-issued ATO satisfies 
+the requirement.  
+Response: The FedRAMP requirement applies to the solution including the chatbot application and 
+platform infrastructure. 
+66. Pricing Structure — SaaS Subscription vs. Labor Hours: Section 4.3 of the Solicitation 
+instructs Quoters to "provide the labor categories and labor hours appropriate for their 
+proposed solution." This contract is for a commercially available SaaS product, which is 
+typically priced as a subscription or license fee rather than by labor hour. Please clarify 
+whether the Government expects: (a) a SaaS subscription/license pricing model, (b) a labor
+hour-based pricing model, or (c) a combination of both, with the SaaS license as a separate 
+line item from implementation and support labor: Background: The appropriate pricing 
+model is fundamental to structuring a complete and competitive price submission. An FFP 
+SaaS license structure is materially different from a labor-hour model and affects both price 
+reasonableness analysis and deliverable-based payment milestones. 
+Response: The government expects that implementation of the Chatbot, such as creating the RAG 
+data structure, training the model, and training Peace Corps administrators and users will require 
+labor hours, while use rates of the SaaS the Chatbot is built upon will require subscription/licensing 
+fees. The Government expects pricing on FFP basis to include the SaaS licensing and labor costs 
+for implementation and integration. 
+67. FAR 52.219-14 Limitations on Subcontracting — Compliance Period: FAR 52.219-14 
+(Deviation Oct 2022), as included in Section 3.1 of the Solicitation (pages 8–9), contains two 
+checkbox options for the compliance measurement period: (1) "By the end of the base term 
+of the contract and then by the end of each subsequent option period," or (2) "By the end of 
+the performance period for each order issued under the contract." Neither checkbox appears 
+to have been selected in the solicitation document. Please confirm which compliance period 
+applies to this acquisition. Background: The selected compliance period directly affects how 
+the prime contractor must structure its subcontracting arrangements and track performance 
+throughout the contract. This is also material to completing Attachment 2, the Limitations on 
+Subcontracting Report. 
+Response: By the end of the base term of the contract and then by the end of each subsequent option 
+period. 
+Page 13 of 33 
+RFQ 140D0426Q0324 
+Amendment 1 
+Contractor Questions and Government Response 
+68. Draft QASP Submission Requirements: Section 4.3 requires Quoters to submit a Draft 
+Quality Assurance Surveillance Plan (QASP) as Volume IV of their quote. PWS Section 
+3.2.1 separately requires the Contractor to submit a draft QASP within 15 days of award and 
+a final QASP within 30 days of award. Please clarify: (a) What level of detail is expected in 
+the pre-award draft QASP submitted with the quote, and (b) should the draft QASP 
+submitted with the quote serve as the starting point for the post-award QASP, or are these 
+treated as independent documents? Background: Clarification will ensure that Volume IV is 
+appropriately scoped and will avoid misalignment between the pre-award and post-award 
+QASP processes. 
+Response: Contractors shall follow the FAR Overhaul 46.4.  The draft QASP should be submitted 
+with the quote and will be the starting point for the post-award QASP.  
+69. CCPA Compliance Applicability: PWS Section 3.1.13 requires the Chatbot to comply with 
+the California Consumer Privacy Act (CCPA). The Peace Corps is a United States federal 
+agency and would not typically be subject to CCPA, which applies to for-profit businesses 
+meeting specific California thresholds. Please confirm whether CCPA compliance is a firm 
+requirement, and if so, please provide the rationale or cite the specific Peace Corps policy 
+that mandates this requirement. Background: CCPA compliance is a material technical and 
+legal requirement that would affect the design of data collection, consent management, and 
+user rights features of the chatbot solution 
+Response: This has been removed from the PWS. 
+70. HIPAA Compliance Scope: PWS Section 3.1.23 requires the Chatbot to "understand and 
+comply with HIPAA requirements, redirecting audience members with HIPAA protected 
+questions to qualified Peace Corps staff." Please clarify the anticipated HIPAA-related use 
+case. Is this requirement related to interactions involving the Global Health Services 
+Partnership (GHSP) program, medical clearance questions from applicants, or another 
+context? Understanding the scope will allow Quoters to appropriately design the chatbot's 
+triage and escalation workflows. Background: HIPAA-related functionality requires specific 
+handling logic, training data, and escalation pathways that differ from standard inquiry 
+handling. Proper scoping is necessary to design a compliant and effective solution. 
+Response: The majority of HIPAA protected content will come from applicants undergoing the 
+medical clearance portion of the Peace Corps application process. Less common would be members 
+of the public divulging medical information regarding currently serving Volunteers or current 
+applicants. 
+Page 14 of 33 
+RFQ 140D0426Q0324 
+Amendment 1 
+Contractor Questions and Government Response 
+71. Expected Timeline for Peace Corps ATO and Target Go-Live Date: The period of 
+performance begins June 1, 2026. PWS Section 6.1.2 describes the process by which Peace 
+Corps will issue an Agency ATO leveraging the Contractor's FedRAMP package. Given the 
+documentation deliverable sequence (Project Plan at 15 days, Requirements Specification at 
+30 days post-kickoff, Design Documentation at 45 days post-Requirements approval, UAT at 
+30 days post-design approval, and final deployment within 60 days of testing completion), 
+the total go-live timeline could extend well into the base year or beyond. Please confirm: (a) 
+whether the Government has a target go-live date, (b) whether an existing Peace Corps ATO 
+or Provisional ATO for any chatbot solution exists that could accelerate the process, and (c) 
+whether the Government's change management and ATO timeline is already incorporated 
+into the above delivery schedule. Background: The ATO timeline is a critical path 
+dependency that significantly affects the overall implementation schedule and deliverable 
+planning within the base period. 
+Response:  The target go live date will be determined after contract award based upon the final 
+project plan. ATO considerations will be reflected in the schedule. 
+72. CRM Integration Scope: PWS Section 2.1 describes the Peace Corps' existing CRM system 
+as integral to recruitment operations, noting that all current lead interactions are recorded in 
+the CRM and that the Agency uses the CRM for email, events, web forms, and outreach. 
+However, the PWS technical requirements (Section 3.1) focus on integration with 
+peacecorps.gov and do not explicitly require CRM integration. Please confirm: (a) whether 
+direct integration between the Chatbot and the Peace Corps CRM is in scope for this contract, 
+(b) if so, what level of integration is required (e.g., lead capture, data synchronization, 
+conversation logging), and (c) whether any Government-furnished APIs or integration 
+documentation will be provided. Background: CRM integration represents a significant 
+technical scope item that would affect proposed architecture, implementation effort, pricing, 
+and the Chatbot's ability to achieve the lead generation and applicant conversion objectives 
+described in the PWS. 
+Response: This depends upon the respondent’s proposed solution. Direct integration with Peace 
+Corps CRM environment is not a requirement at this stage of the project, but it may be necessary 
+for certain proposed solutions and will be evaluated on a case-by-case basis as part of a Best Value 
+Tradeoff determination. If a respondent’s solution requires integration, Peace Corps will provide 
+the necessary APIs and integration documentation. 
+Page 15 of 33 
+RFQ 140D0426Q0324 
+Amendment 1 
+Contractor Questions and Government Response 
+73. RAG Dataset Curation Responsibility and Government Furnished Information: PWS 
+Section 3.1.4 states that the RAG dataset will consist of selected sections of peacecorps.gov, 
+publicly facing documents, internal documents, and customized workflows, with an 
+estimated 1,000 to 10,000 pages at initial deployment. Please clarify: (a) whether the curation 
+and preparation of the initial RAG dataset is the responsibility of the Contractor, the 
+Government, or a shared effort; (b) whether Peace Corps internal documents and workflows 
+will be provided as Government Furnished Information (GFI) prior to the RAG build phase; 
+and (c) whether the Contractor should price the initial dataset curation effort as part of their 
+quote. Background: The scope and ownership of the initial dataset curation has a direct 
+bearing on implementation timelines, level of effort pricing, and the feasibility of the 
+deployment schedule. 
+Response: The Peace Corps will provide all initial data for the RAG as GFI, the respondent’s 
+solution must include structure and the capability for continued development and curation of 
+the RAG. The respondent should price their quote accordingly. 
+74. Multilingual Support — Required Languages at Deployment: PWS Section 3.1.9 
+requires the Chatbot to support interaction in multiple languages using a single English
+language RAG dataset. Please specify: (a) which languages must be supported at initial 
+deployment, (b) whether there is a minimum number of supported languages required, and 
+(c) whether additional language support may be phased in during the option periods. 
+Background: The number and complexity of languages required at deployment directly 
+affects the choice of underlying AI model, translation infrastructure, and QA testing scope, 
+all of which have material cost and timeline implications. 
+Response: English and Spanish must be supported at initial deployment; all other languages are 
+optional at this phase of the project but will be evaluated as part of a Best Value Tradeoff 
+determination. 
+75. Retrieval-Augmented Generation (RAG) Constraint; Reference: PWS 3.1.4 
+Can you clarify whether “rely solely on a RAG” means that responses must be grounded in 
+retrieved Peace Corps-approved content, or whether the model is prohibited from leveraging 
+pretrained knowledge? Are responses expected to include source citations for retrieved 
+content?  “Pretrained knowledge” refers to the knowledge and reasoning capabilities 
+developed during the foundation model’s training process, in which the model learns 
+statistical relationships, language patterns, domain concepts, and general world knowledge 
+from large, diverse datasets. This underlying training enables the model to interpret prompts, 
+reason, summarize, and generate responses.   Can Peace Corps confirm this interpretation: 
+responses should be grounded in retrieved Peace Corps-approved content, but this 
+requirement does not prohibit using the model’s pretrained capabilities in conjunction with 
+retrieval? 
+Response: Peace Corps can confirm that responders should provide the best solution given project 
+requirements, and all responses will be assessed using the same Best Value Tradeoff criteria. 
+Page 16 of 33 
+RFQ 140D0426Q0324 
+Amendment 1 
+Contractor Questions and Government Response 
+76. FedRAMP High Authorization Approach: Reference: PWS 3.1.1; 6.1 
+Can the Government confirm whether we may leverage an existing FedRAMP High 
+authorized SaaS platform and inherit controls from that authorization boundary, with the 
+Peace Corps issuing an Agency Authorization to Operate (ATO) for its implementation? 
+Additionally, is a FedRAMP Agency ATO sufficient, or is a JAB Provisional Authorization 
+(P-ATO) required? 
+Response: The FedRAMP requirement applies to the solution including the chatbot application and 
+platform infrastructure. Some controls can be inherited from the platform as part of the solution 
+FedRAMP designation. The Peace Corps will issue its ATO/ATU based on information in the 
+FedRAMP program and in other agencies’ ATOs. 
+77. FedRAMP Boundary Scope: Reference: PWS 3.1.1; 6.1 
+Should all components of the solution reside fully within a FedRAMP High boundary 
+controlled by the offeror, or is a hybrid architecture with segmented components acceptable? 
+Response: The FedRAMP requirement applies to the solution including the chatbot application and 
+platform infrastructure. A hybrid/segmented architecture is acceptable but all components must 
+meet the FedRAMP High designation. 
+78. Live Agent and CRM Integration: Reference: PWS 3.1.11 
+Can you provide details on any existing Live Agent and/or CRM systems that the chatbot 
+must integrate with, and whether APIs or middleware are currently available to support this 
+integration? 
+Response: Peace Corps does not currently have a system for live agent engagement or case 
+management. There is currently an internal team of 10 contractors processing general inquiries from 
+leads and other members of the public for the Office of Recruitment. This team will act as the first 
+tier of support for live escalations from the Chatbot, although in certain cases the Chatbot will need 
+to escalate to other offices or groups of people. 
+Initial implementation of the chatbot does not require direct integration to the Agency’s 
+CRM, that is dependent upon the respondent’s proposed solution, given requirements. 
+79. Expected User Load and Concurrency: Reference: PWS 2.2.1 
+Can you provide expected adoption rates, peak concurrent users, or target usage assumptions 
+to inform solution sizing and scalability planning? 
+Response: Please refer to section 2.2 Scope of the PWS. 
+80. Response Time Expectations: Reference: PWS 3.1.6 
+Can you provide specific response time expectations for chatbot interactions? 
+Response: Fast enough to ensure a smooth and natural conversation flow. 
+Page 17 of 33 
+RFQ 140D0426Q0324 
+Amendment 1 
+Contractor Questions and Government Response 
+81. Multilingual Capability Expectations: Reference: PWS 3.1.9 
+Can you clarify which languages are expected to be supported and whether machine 
+translation approaches using a single English dataset (assuming the Peace Corps corpus is 
+English-only) are acceptable? 
+Response: English and Spanish are expected to be supported at a minimum, more languages than 
+that will be evaluated as part of a Best Value Tradeoff determination. For the RAG, Peace Corps 
+will be providing materials only in English. 
+82. Data Retention and Usage: Reference: PWS 3.1.22; 6.1 
+Can you clarify requirements for data retention duration, and whether chatbot interaction data 
+may be used for system improvement (e.g., tuning, optimization), provided it remains within 
+the authorized environment? 
+Response: If data is stored in external systems, it must be kept until transferred to the Peace Corps. 
+Peace Corps expects Chatbot interaction data to be used for system improvement. 
+83. Explainability Requirements: Reference: PWS 3.1.21 
+Can you clarify expectations for “explainable outputs”? Is citation of source material 
+sufficient, or are additional explanation mechanisms required? 
+Response: When the Chatbot provides a factually incorrect, misleading or wrong response to a 
+question, Peace Corps wants to understand why this happened as part of the correction process. 
+Material citation, where applicable, on the front end, for Users, is a related but separate process. 
+Both are necessary. 
+84. AI Risk Management Framework: Reference: PWS 3.1.20 
+Are there specific frameworks or standards (e.g., NIST AI Risk Management Framework) 
+that you expect offerors to follow for AI risk management? 
+Response: The Peace Corps does not expect a specific risk management framework, but respondents 
+should describe their process for managing risk with AI technologies. 
+85. Continuous Learning and Government Control:Reference: PWS 3.1.5 
+Can you clarify expectations regarding the level of technical expertise required for Peace 
+Corps staff to manage continuous learning and updates? 
+Response: At a minimum, Peace Corps OCIO Product Managers and IT Specialists should be able 
+to manage the solution’s continued administration and upkeep. 
+Page 18 of 33 
+RFQ 140D0426Q0324 
+Amendment 1 
+Contractor Questions and Government Response 
+86. Accessibility Compliance Validation: Reference: PWS 6.2 
+Can you clarify expectations for demonstrating Section 508 compliance? Is it sufficient to 
+provide a VPAT and/or other particular standards (like WCAG 2.1)?  What further testing 
+methodologies or other standards are required as part of this submission? 
+Response: A VPAT is acceptable for demonstrating Section 508 compliance. 
+87. FedRAMP impact level clarification. In support of RFQ Section 1.3 (p. 3 of 23), PWS 
+Section 3.1.1 (Attachment 1, p. 7 of 27), and PWS Section 6.1 (Attachment 1, p. 17 of 
+27): The RFQ/PWS references a “FedRAMP High Authorization” chatbot, while PWS 
+Section 6.1 references FedRAMP / Continuous Monitoring requirements for “Moderate 
+impact systems.” Please confirm the required impact level for the proposed cloud / SaaS 
+solution and whether Peace Corps will accept a FedRAMP-authorized solution consistent 
+with the final FIPS 199 / agency authorization categorization. 
+Response: The solution must have a FedRAMP high designation and meet the continuous 
+monitoring requirements for FedRAMP High-designated solutions. The PWS will be corrected to 
+reflect this consistently throughout the document. 
+88. Commercial AI Service Within a Segmented SaaS Solution. In support of PWS Section 
+3.1.1 (Attachment 1, p. 7 of 27), PWS Section 3.1.3 (Attachment 1, p. 8 of 27), PWS 
+Section 6.1.2 (Attachment 1, p. 19 of 27), and RFQ Section 5 / Factor A (pp. 20-21 of 23): 
+Please confirm whether a commercially available SaaS chatbot solution may use a segmented 
+architecture in which conversational AI / foundation-model capabilities, retrieval, 
+orchestration, website integration, and administrative functions are provided through 
+integrated cloud services within the proposed solution, provided the Contractor documents 
+the authorization boundary, inherited controls, customer controls, data flows, and security 
+responsibilities necessary for Peace Corps to issue its agency ATO. 
+Response: Yes, as long as the data remains segmented and the entire solution aligns with Peace 
+Corps’ ATO process. 
+89. Continuous Learning and Use of Interaction Data. In support of PWS Section 3.1.5 
+(Attachment 1, p. 8 of 27) and PWS Section 3.1.22 (Attachment 1, p. 11 of 27): Please 
+confirm whether “continuous learning” may be satisfied through secure capture of user 
+interactions for later analysis; human-approved updates to the knowledge base, retrieval 
+rankings, prompts, workflows, guardrails, feedback queues, evaluation sets, and 
+configuration; and Peace Corps staff training to oversee these processes - rather than 
+requiring autonomous model retraining or training/fine-tuning of generalized foundation 
+models on Peace Corps or public-ushigher interaction data. 
+Response: Peace Corps expect respondents to determine the method of continuous learning based 
+on technological requirements of the solution. 
+Page 19 of 33 
+RFQ 140D0426Q0324 
+Amendment 1 
+Contractor Questions and Government Response 
+90. The PWS (Section 3.1.1) requires a FedRAMP High authorized solution, but Section 6.1 
+references FedRAMP Moderate baseline controls. Is the requirement for FedRAMP High or 
+Moderate?  
+Response: FedRAMP High. The PWS will be corrected to reflect this consistently throughout the 
+document. 
+91. The PWS (Section 3.1.1) states contractors shall provide a FedRAMP High authorized 
+solution. If High is required, will the Government accept a solution operating under 
+FedRAMP Moderate authorization with a documented Path to High, or is FedRAMP High 
+authorization (JAB Provisional or Agency ATO) required at the time of contract award and at 
+the start of performance? 
+Response: The proposed solution must have or be in the process of obtaining a FedRAMP High 
+designation. Operating on a FedRAMP designated platform does not adequately secure the solution. 
+92. If FedRAMP High is required, does it apply to (a) the entire SaaS/PaaS platform hosting the 
+chatbot, (b) only the government data boundary managed by the prime contractor, or (c) the 
+underlying cloud infrastructure only? Please clarify which components within the solution 
+architecture must individually hold FedRAMP High authorization. 
+Response: The entire proposed solution must have or be in the process of obtaining a FedRAMP 
+High designation. Operating on a FedRAMP designated platform does not adequately secure the 
+solution. 
+93. Must the FedRAMP High authorization be active and in place at the time of quote 
+submission, contract award, or the start of performance? Alternatively, will the Government 
+accept a plan to obtain a Peace Corps Agency ATO within a defined period after award (e.g., 
+60–90 days)? 
+Response: The proposed solution must have or be in the process of obtaining a FedRAMP High 
+designation at time of quote submission to be able to verify the requirement during the proposal 
+evaluation.  
+94. Does the Peace Corps currently have an active Agency Authority to Operate (ATO) for any 
+Google Cloud Platform services? If so, which services are currently under that ATO, and 
+what is the impact level? 
+Response: No. 
+Page 20 of 33 
+RFQ 140D0426Q0324 
+Amendment 1 
+Contractor Questions and Government Response 
+95. What level of access will the contractor have to the peacecorps.gov CMS (currently Django 
+5/Wagtail 8) for integration purposes? Will a Peace Corps technical point of contact be 
+available during the integration phase? Are there known firewall rules, API gateway 
+restrictions, or network policies that would affect embedding a JavaScript-based chatbot 
+widget on peacecorps.gov? 
+Response: Peace Corps will provide a technical point of contact whenever necessary throughout the 
+development and implementation processes to provide access for integration. There are no 
+restrictions that would affect respondent’s approach, other than a content security policy (CSP), 
+which would require Peace Corps to whitelist the script-src for the widget. 
+96. The PWS describes the Peace Corps' existing CRM system as the central hub for lead 
+interactions. Is CRM integration (e.g., lead capture, conversation logging into the CRM) 
+within scope for the base period, or is it anticipated as a future option period enhancement? If 
+in scope for the base period, which CRM platform is in use? 
+Response: Initial implementation of the Chatbot does not require direct integration to the Agency’s 
+CRM, that is dependent upon the respondent’s proposed solution, given requirements. 
+97. Will the Peace Corps provide curated source documents for the initial RAG knowledge base 
+at contract award, or is the contractor expected to independently harvest content from 
+peacecorps.gov and publicly available documents? What is the estimated timeline for Peace 
+Corps to complete initial content curation and review? 
+Response: Peace Corps will provide all sources of information, both internal and external, for 
+populating the RAG. Peace Corps will prioritize content collection and review upon kickoff of the 
+project, but not before, as the Agency expects input and guidance from the vendor. 
+98. Does Peace Corps currently use a specific customer service or help desk platform (e.g., 
+Salesforce Service Cloud, Zendesk, ServiceNow) that the chatbot's live-agent escalation 
+feature must integrate with? Or will live-agent transfer be handled via a new interface 
+provided by the contractor? 
+Response: Peace Corps does not currently have a system for live agent engagement or case 
+management. There is currently an internal team of 10 contractors processing general inquiries from 
+leads and other members of the public for the Office of Recruitment. This team will act as the first 
+tier of support for live escalations from the Chatbot, although in certain cases the Chatbot will need 
+to escalate to other offices or groups of people. 
+Page 21 of 33 
+RFQ 140D0426Q0324 
+Amendment 1 
+Contractor Questions and Government Response 
+99. Does the Peace Corps have a defined list of required supported languages for the chatbot's 
+multilingual functionality (PWS Section 3.1.9)? Are there particular languages (e.g., Spanish, 
+French, Swahili) that represent the majority of expected non-English interactions based on 
+the profile of prospective volunteers? 
+Response: English and Spanish must be supported at initial deployment, all other languages are 
+optional at this phase of the project but will be evaluated as part of a Best Value Tradeoff 
+determination. 
+100. PWS Section 3.1.23 references HIPAA compliance. Does the Peace Corps anticipate the 
+chatbot receiving interactions that could involve Protected Health Information (PHI), or is 
+the requirement limited to detecting and redirecting HIPAA-relevant queries to staff? Is a full 
+HIPAA Business Associate Agreement (BAA) required from the contractor? 
+Response: Although the Chatbot is not required to actively engage in HIPAA related content and 
+will be designed to limit and redirect such conversation, there is a high probability of Users entering 
+unsolicited HIPAA protected information and other sensitive PHI/PII during their interactions with 
+the Chatbot. A full BAA is not required from the contractor. 
+101. Does the Government have a preference for how pricing is structured—specifically, will 
+a consumption-based (usage/volume) pricing model for cloud platform services be 
+acceptable, or does the Government require fixed firm-fixed-price rates for all components? 
+If FFP is required for cloud services, how should offerors handle variable usage scenarios? 
+Response: Respondents are expected to provide a FFP for the period of performance. They may 
+structure their FFP according to costs that are incurred. 
+102. FAR 52.219-14 requires that no more than 50% of the amount paid by the Government 
+be paid to non-similarly-situated subcontractors. Does licensing and subscription cost paid to 
+a large business cloud platform provider (Google Cloud) count toward the 50% 
+subcontracting limitation, or are commercial software/SaaS license costs excluded from this 
+calculation? 
+Response: The commercial software/SaaS license costs are excluded from this calculation and 
+should be included under ODCs 
+103. The PWS requires a draft QASP with the quote and a final QASP within 30 days of 
+award. Does the Government have a preferred template or format for the QASP, or will the 
+contractor's proposed format be accepted if it covers all required performance objectives? 
+Response: Contractor’s format is acceptable. 
+Page 22 of 33 
+RFQ 140D0426Q0324 
+Amendment 1 
+Contractor Questions and Government Response 
+104. The PWS requires compliance with federal data protection requirements. Does the 
+Government have specific data residency requirements beyond standard U.S.-based cloud 
+hosting—for example, specific geographic regions, air-gapped environments, or government
+specific cloud regions (e.g., Google Cloud's "US" regions vs. specific data centers)? 
+Response: No specific data residency requirements beyond standard U.S.-based cloud hosting. 
+105. Can past performances come from subcontractors and if so, how many are required to 
+come from the prime? 
+Response: Past performance can be submitted for subcontractors, preference would be past 
+performance from the prime though. 
+106. Is there an incumbent contractor currently providing chatbot or similar services to the 
+Peace Corps?  
+Response: Not applicable. 
+107. Does the 20-page limit for Volume I - Technical include or exclude the cover page and 
+table of contents in the page count limit?  
+Response: Cover page and table of contents are not included in the 20-page limit. 
+108. Regarding Section 3.1.9, which requires multilingual support from an English-only RAG 
+dataset: To ensure equitable language access and the highest standard of user safety , could 
+the Government identify the primary languages most commonly used by prospective 
+volunteers and clarify if it will provide human-verified 'Golden Glossaries' or translated 
+safety protocols to prevent 'translation drift' when the AI interprets critical safety or medical 
+information?  
+Response: English and Spanish must be supported at initial deployment, all other languages are 
+optional at this phase of the project but will be evaluated as part of a Best Value determination. 
+Respondents are expected to address any needs for ‘Golden Glossaries,’ translated safety protocols 
+and interpretation of critical safety and medical protocols. 
+109. Regarding the pricing instructions in Section 4.4, would the government please confirm 
+offerors are required to leverage existing contract labor categories and rates to produce price 
+quotes and to serve as a basis for offering discounts as encouraged by the solicitation?  
+Response: Yes, contractors may use existing labor categories and rates to serve as a basis for 
+offering discounts. 
+Page 23 of 33 
+RFQ 140D0426Q0324 
+Amendment 1 
+Contractor Questions and Government Response 
+110. The Government states it will conduct an evaluation of price quotes to determine 
+reasonableness for the work to be performed, reflection of a clear understanding of the 
+requirements, and consistency with the proposed technical solution; further, price quotes will 
+be assessed to identify potential risk, in reference to any aspect of a quote which could have 
+significant negative price consequences for the Government. Will the Government please 
+confirm that it intends to conduct both price reasonableness and price realism analyses when 
+evaluating quotes?  
+Response: The Government will perform price reasonableness determination. 
+111. Sections 4.1 and 4.3 of the solicitation require the Technical quote and Price quote to be 
+submitted as separate volumes, and for Volume III (Assumptions, Conditions, or Exceptions) 
+to be submitted under separate cover. Given that quotes must be submitted electronically via 
+email, can the Government please clarify if it requires all five volumes (Volumes I through 
+V) to be submitted as five individually attached files within a single email.  
+Response: While the Government encourages submission of all five volumes in a single email to 
+help avoid the risk of missed or incomplete quotes, separate emails may be used if file size 
+limitations prevent consolidation into one message. In all cases, offerors are responsible for ensuring 
+the complete quote is received, properly identified, and not submitted in an incomplete manner in 
+accordance with the RFQ instructions. 
+112. Can the Government please clarify if the completed SF 1449 should be submitted as its 
+own separate file, included with the Cover Page/Cover Letter, or embedded within a specific 
+volume?  
+Response: The Standard Form 1449 attachment is for internal documentation and reference 
+purposes only and does not need to be included with your quote submission. 
+113. Can the Government please clarify if the required 'cover page' should be submitted as a 
+standalone document, combined with the 'cover letter' at the beginning of Volume I, or 
+attached to the front of every individual volume?  
+Response: A cover letter can be included for each volume. 
+Page 24 of 33 
+RFQ 140D0426Q0324 
+Amendment 1 
+Contractor Questions and Government Response 
+114. Regarding Section 3.1.11, which requires integration to transfer users to staff or customer 
+service representatives: can the Government clarify which systems the Chatbot will be 
+required to integrate for this action and which other  existing systems within the agency are 
+required for this business process. 
+Response: Peace Corps does not currently have a system for live agent engagement or case 
+management. There is currently an internal team of 10 contractors processing general inquiries from 
+leads and other members of the public for the Office of Recruitment. This team will act as the first 
+tier of support for live escalations from the Chatbot, although in certain cases the Chatbot will need 
+to escalate to other offices or groups of people. 
+Initial implementation of the chatbot does not require direct integration to the Agency’s 
+CRM, that is dependent upon the respondent’s proposed solution, given requirements. 
+115. What is the full applicant cycle the Chatbot is expected to engage in? Is the Chatbot soley 
+for front-end, public-facing lead generation, or ill it be expected to interact with users after 
+the initial lead generation?  
+Response: The Chatbot is expected to be able to interact with every member of the public who 
+frequents peacecorps.gov, this includes every stage of the Peace Corps volunteer process from lead 
+to returned volunteer. 
+116. The solicitation heavily emphasizes lead generation and applicant conversion, but these 
+terms can be ambiguous. How exactly does the Government define a "lead," an "applicant," 
+and "applicant conversion" in the context of this Chatbot?  
+Response: Leads are anyone interested in serving in Peace Corps as a volunteer. Applicants are 
+anyone who has submitted an application to serve as a volunteer in Peace Corps and are still waiting 
+to find out if they have been accepted to serve Applicant conversion refers to the process of when a 
+lead converts to an applicant through the submission of an application. 
+117. Section 3.1.17 requires the contractor to offer insights into user behavior and interaction 
+patterns. While the chatbot design and scope includes logging and potential for analysis of 
+the chatbot interactions the Peace Corps public website interaction design can be a support or 
+a gate to this. Is the development of the website, including design and implementation to 
+incorporate the chatbot, in scope for the project? 
+Response: In general, no work on the website directly is in scope. Contractors can make 
+recommendations about how and where to incorporate the chatbot, but Peace Corps’ team will 
+handle the implementation. 
+Page 25 of 33 
+RFQ 140D0426Q0324 
+Amendment 1 
+Contractor Questions and Government Response 
+118. Section 1.10. notes that Other Direct Costs (ODC) are not anticipated in performance of 
+this order. Since ODCs are not anticipated, would the government confirm that the licensing 
+for the Azure environment and tooling remains with the Peace Corps? 
+Response:  If the proposed solution includes Azure, Peace Corps can confirm that Azure use costs 
+remain with the Agency.  This section has been revised to remove ODCs. 
+119. PWS Section 3.1.3 CMS Integration: The PWS (Section 3.1.3) requires the chatbot to 
+integrate with the existing Django/Wagtail website. Are there established APIs or integration 
+points for this CMS? 
+Response: The respondent’s solution needs to be available on Peace Corps website, so that someone 
+surfing on peacecorps.gov can interact with it easily and seamlessly, all other integrations are 
+dependent upon the requirements of the respondent’s solution. Peace Corps will provide a technical 
+point of contact whenever necessary throughout the development and implementation processes. 
+There are no restrictions that would affect respondent’s approach, other than a content security 
+policy (CSP), which would require Peace Corps to whitelist the script-src for the widget. 
+120. PWS Section 3.1.3 Pre-defined Workflows: The PWS (Section 3.1.4) mentions the RAG 
+dataset will include "customized workflows." Are there pre-existing workflows that need to 
+be automated, or is the contractor expected to identify, design, and build these workflows as 
+part of the implementation process? 
+Response: Contract, working with Peace Corps’ project team, is expected to identify, design, and 
+build these workflows as part of the implementation process. 
+121. Live Agent Integration Specifics. The PWS requires the chatbot to seamlessly transfer 
+users to a live agent or customer service representative, including robust queue management 
+and callbacks. It also mentions that the Peace Corps already uses a Customer Relationship 
+Management (CRM) system.What specific CRM and contact center software (e.g., 
+Salesforce, Zendesk, ServiceNow) is the Peace Corps currently using? The vendor will need 
+technical details on this existing system to accurately scope and price the API integrations 
+required for live agent handoffs and queue management. 
+Response: Peace Corps does not currently have a system for live agent engagement or case 
+management. There is currently an internal team of 10 contractors processing general inquiries from 
+leads and other members of the public for the Office of Recruitment. This team will act as the first 
+tier of support for live escalations from the Chatbot, although in certain cases the Chatbot will need 
+to escalate to other offices or groups of people. 
+Initial implementation of the chatbot does not require direct integration to the Agency’s 
+CRM, that is dependent upon the respondent’s proposed solution, given requirements. 
+Page 26 of 33 
+RFQ 140D0426Q0324 
+Amendment 1 
+Contractor Questions and Government Response 
+122. Given the inclusion of the FAR 52.219-14 Limitations on Subcontracting clause, which 
+dictates that a small business prime contractor cannot pay more than 50% of the contract 
+amount to a non-similarly situated entity (like a large software provider), how does the 
+Government expect vendors to handle the cost of enterprise SaaS licenses? Are the AI 
+software licenses considered "supplies" or "services" for the purposes of calculating the 50% 
+limitation? 
+Response: The commercial software/SaaS license costs are excluded from this calculation and 
+should be included under ODCs. 
+123. The Government intends to award a Firm-Fixed-Price (FFP) contract. To help vendors 
+price the solution, the Government provided CY2025 historic web traffic (over 14 million 
+views). However, the Government also states that "engagement from the public will 
+dramatically increase" and tells respondents to "take this into consideration". Because 
+generative AI cloud computing costs scale directly with user query volume, how should 
+vendors structure a Firm-Fixed-Price quote for a "dramatic" but undefined increase in 
+interactions? Will the Government establish a maximum yearly threshold or tier for Chatbot 
+interactions to protect the contractor from unlimited financial risk? 
+Response: The government is aware that conversational AI models are typically usage-based 
+pricing. When calculating cost, respondents will need to account for this and all other variable 
+factors and build it into their pricing model. 
+124. The requirements state that the Chatbot must support interactions in multiple languages 
+while retrieving answers from a single English-language dataset. Can the Government 
+provide a specific list of the languages the Chatbot must support at launch? Additionally, 
+since the AI will be translating official English source material in real-time, what is the 
+Government's process for validating the accuracy of these translations? 
+Response: English and Spanish must be supported at initial deployment, all other languages are 
+optional at this phase of the project but will be evaluated as part of a Best Value Tradeoff 
+determination. Respondents are expected to address any needs for ‘Golden Glossaries,’ translated 
+safety protocols and interpretation of critical safety and medical protocols. 
+125. The PWS Section 3.1.1 requires FedRAMP High authorization, while Section 6.1 
+references FedRAMP Moderate baseline controls. Please confirm: is FedRAMP High 
+authorization strictly required at contract start, or will a vendor holding FedRAMP Moderate 
+authorization with an active, documented path to High be acceptable; provided High is 
+achieved within a mutually agreed post-award timeframe? 
+Response: FedRAMP High authorization is required. 
+Page 27 of 33 
+RFQ 140D0426Q0324 
+Amendment 1 
+Contractor Questions and Government Response 
+126. What is the Government’s anticipated timeline from contract award to issuance of a 
+Peace Corps Agency ATO? Will the Contractor be permitted to begin implementation 
+planning and RAG dataset development during the ATO review process, or must ATO be 
+issued before any system build activity commences? 
+Response: The Contractor may continue implementation planning and RAG dataset development 
+during the ATO review process. The solution may not be put into production until the ATO is 
+completed, The timeline for the ATO will be based upon the final project plan. 
+127. Will Peace Corps provide the initial curated RAG dataset (or structured access to 
+peacecorps.gov content) to the Contractor for ingestion, or is the Contractor expected to 
+independently compile this dataset? Who holds responsibility for initial RAG population, 
+quality assurance, and ongoing content governance? 
+Response: Peace Corps will provide all sources of information, both internal and external, for 
+populating the RAG. The contractor is expected to provide structure for the content in the RAG, 
+whatever form that takes. After deployment and training, Peace Corps staff are expected to directly 
+manage and update the RAG dataset. 
+128. The PWS requires multilingual support from a single English-language RAG dataset 
+(Section 3.1.9). Are there specific target languages required at launch? Is there a minimum 
+number of languages the Government requires, or will target languages be defined 
+collaboratively post-award? 
+Response: English and Spanish must be supported at initial deployment, all other languages are 
+optional at this phase of the project but will be evaluated as part of a Best Value Tradeoff 
+determination. 
+129. Does Peace Corps have an existing live-agent or customer service platform (e.g., 
+Salesforce Service Cloud, Zendesk, or similar) that the Chatbot must integrate with for 
+escalation and queue management? Or is the Contractor expected to provide a native live
+agent capability as part of the solution? 
+Response: Peace Corps does not currently have a system for live agent engagement or case 
+management. There is currently an internal team of 10 contractors processing general inquiries from 
+leads and other members of the public for the Office of Recruitment. This team will act as the first 
+tier of support for live escalations from the Chatbot, although in certain cases the Chatbot will need 
+to escalate to other offices or groups of people. 
+Page 28 of 33 
+RFQ 140D0426Q0324 
+Amendment 1 
+Contractor Questions and Government Response 
+130. The PWS requires HIPAA-compliant handling and redirection of health-related inquiries 
+(Section 3.1.23). Can the Government clarify the expected frequency and nature of HIPAA
+sensitive interactions via the public chatbot? Is a full Business Associate Agreement (BAA) 
+required as part of this contract? 
+Response: Although the Chatbot is not required to actively engage in HIPAA related content and 
+will be designed to limit and redirect such conversation, there is a high probability of Users entering 
+unsolicited HIPAA protected information and other sensitive PHI/PII during their interactions with 
+the Chatbot. A full BAA is not required from the contractor. 
+131. The PWS requires the final Chatbot deployment within 60 days of completing 
+documentation, testing, and cybersecurity assessment phases. Given that FedRAMP ATO 
+processes typically require 3–6 months, is the 60-day deployment clock independent of the 
+ATO timeline? What is the Government’s realistic expectation for go-live date from contract 
+start? 
+Response: TBD based upon the final project plan. 
+132. The RFQ requests pricing by labor category and hours, which may not align with a SaaS 
+subscription model. Will the Government accept a price submission structured as an annual 
+SaaS license with separate implementation/onboarding line items, rather than a labor-hour 
+breakdown? Should each of the five performance periods be priced separately? 
+Response:   
+The Government will accept breakdown to include 1) implementation (include 
+‘training’ of the RAG), 2) training and training materials for administers and users, and 3) year over 
+year reoccurring costs – usage rate, hosting, subscription, tier 3 support, etc.  Please reference the 
+revised solicitation.   
+Yes, each of the five performance periods is required to be priced separately.    
+133. The RFQ does not specify an estimated contract value or ceiling. Can the Government 
+provide any indication of the anticipated budget range or a Not-to-Exceed ceiling to assist 
+vendors in developing appropriately scoped and priced solutions? 
+Response:  The Government is not providing the budget. 
+134. The RFQ requires three past performance references from similar efforts within the last 
+three years. For an AI company with demonstrated federal validation (e.g., DoD SBIR Phase 
+II) and strong commercial AI platform deployments in adjacent domains (talent acquisition, 
+conversational AI), will the Government consider commercial references relevant if the work 
+involved comparable AI complexity, scale, and compliance requirements? 
+Response: Yes. 
+Page 29 of 33 
+RFQ 140D0426Q0324 
+Amendment 1 
+Contractor Questions and Government Response 
+135. Is subcontracting allowed? Any particular goal or % limitation? 
+Response: Subcontracting is allowed but must follow 52.219-14. 
+136. Are you okay with commercial or SLED references and past performance? Will that 
+affect any evaluation points? 
+Response: As stated in the solicitation, the Government is looking for past performance that 
+demonstrates recent and relevant past performance. Recent is defined as within the last three years. 
+Relevant is defined as work similar in complexity and magnitude of the work described in this 
+Performance Work Statement. Please provide three references of similar efforts performed by your 
+organization for the last three years. 
+137. Any allocated budget for this?  
+Response: The Government is not providing the budget. 
+138. Is this a new initiative or are there any current incumbents? Any current spend on this 
+right now? 
+Response: This is a new initiative with no current spend. 
+139. What's the current process and any pain points? 
+Response: Peace Corps does not currently have a system for live agent engagement or case 
+management. There is currently an internal team of 10 contractors processing general inquiries from 
+leads and other members of the public for the Office of Recruitment. Over 90% of inquiries from 
+the public fielded by this team are predictable and from a limited set of subject matter, reducing this 
+workload would allow more time spent on mission critical activities.    
+140. Any particular use-cases you are targeting to achieve by this year, next year etc. by 
+implementing this? 
+Response: Please refer to the PWS. 
+141. Is there any public data or dataset we can use to test our chatbot solutions for efficacy 
+purposes? Any guidance on this would help. 
+Response: Peace Corps has not compiled a formal dataset for this yet, internally or externally, and 
+does not plan to do so until the project kickoff. However, much of the contents of peacecorps.gov 
+will be part of the RAG, and there are other public facing documents that would be suitable for 
+using as test data as well. 
+Page 30 of 33 
+RFQ 140D0426Q0324 
+Amendment 1 
+Contractor Questions and Government Response 
+142. Please advise on current technical stack or environment and technology tools being used 
+Response: Peace Corps uses AWS and Azure for cloud workloads, Dynamics, SQL and Oracle for 
+databases, and Power Platform and other SaaS solutions with various integration availability for 
+data extraction. However, the responder’s proposed solution is not limited to Peace Corps current 
+platforms or tech stack, as long as requirements are met. 
+143. Is this single vendor award or multi-vendor award? 
+Response:  This will be a single vendor award.  
+144. Is the work to be done onsite or any requirements to be onsite? 
+Response:  All work by the Contractor is expected to be off-site. 
+145. Can the work be done being onshore remote from anywhere within the US? 
+Response: Yes, all work by the Contractor is expected to be off-site within the United States of 
+America. 
+146. Do you allow any offshore or nearshore resources outside of the US at all? Any 
+limitations or cases where they can be leveraged? 
+Response: Place of performance is the contractor site located within the United States of America. 
+147. Section 1.3 and PWS Section 3.1.1 reference "FedRAMP High Authorization," while 
+PWS Section 6.1 references FedRAMP requirements "for Moderate impact systems (as 
+defined in FIPS PUB 199)." Can the Government clarify which FedRAMP authorization 
+level — Moderate or High — is required for the proposed solution? 
+Response: FedRAMP High Authorization is required. 
+148. Will the Government accept a solution where the offeror serves as the system integrator 
+deploying and configuring a FedRAMP-authorized third-party SaaS conversational AI 
+platform (i.e., the underlying platform holds the FedRAMP ATO), or must the offeror itself 
+hold the FedRAMP authorization? 
+Response: The Government will accept a solution where the offeror serves as the system integrator 
+deploying and configuring a FedRAMP-authorized third-party SaaS conversational AI platform. 
+Page 31 of 33 
+RFQ 140D0426Q0324 
+Amendment 1 
+Contractor Questions and Government Response 
+149. Regarding FAR 52.219-14 Limitations on Subcontracting, for a solution where the 
+offeror procures SaaS platform licensing from a FedRAMP-authorized provider, would such 
+licensing costs be considered subcontracting costs subject to the 50% limitation, or would 
+they be classified as materials/supplies?  
+Response: The commercial software/SaaS license costs are excluded from this calculation and 
+should be included under ODCs 
+150. Can the Government clarify whether it will consider past performance examples 
+submitted for proposed subcontractors or teaming partners, or whether the past performance 
+evaluation will be limited solely to the prime contractor?  
+Response: Past performance can be submitted for subcontractors, preference would be past 
+performance from the prime though. 
+151. FedRAMP High Requirement - Can the Government clarify whether the FedRAMP High 
+requirement must be met through a fully authorized solution at time of award, or if 
+compliance through an authorized environment and supporting controls is acceptable? 
+Response: Implementation of the solution on an authorized environment with supporting controls 
+is acceptable if the solution is in the process of obtaining the FedRAMP High designation. 
+152. Government-Furnished Information - Will the Government provide the necessary content 
+and information required for initial deployment, or is the contractor expected to develop and 
+prepare such materials? 
+Response: Peace Corps will curate and provide all materials and content for the RAG. The responder 
+will need to provide guidance on form and format of that content and create the framework and 
+system in which it resides and is upkept for the conversational AI model.  
+153. Delivery Timeline - Can the Government confirm whether the stated timeline reflects 
+delivery of complete functionality, or if delivery may occur in phased increments aligned to 
+milestone approvals? 
+Response: The vendor may propose additional phased milestones for delivery. The stated timeline 
+is for delivery of complete functionality. 
+Page 32 of 33 
+RFQ 140D0426Q0324 
+Amendment 1 
+Contractor Questions and Government Response 
+154. Integration Scope - Can the Government provide clarification on the expected level of 
+integration with existing systems and interfaces? 
+Response: The respondent’s solution needs to be available on Peace Corps website, so that someone 
+surfing on peacecorps.gov can interact with it easily and seamlessly, all other integrations are 
+dependent upon the requirements of the respondent’s solution. Peace Corps will provide a technical 
+point of contact whenever necessary throughout the development and implementation processes. 
+Initial implementation of the Chatbot does not require direct integration to the Agency’s 
+CRM, that is dependent upon the respondent’s proposed solution, given requirements. 
+155. Past Performance Qualification - Can the Government clarify whether past performance 
+submitted as part of the response may include experience from subcontractors or teaming 
+partners, or if it must be limited to the prime contractor? 
+Response: Past performance can be submitted for subcontractors, preference would be past 
+performance from the prime though 
+Page 33 of 33 

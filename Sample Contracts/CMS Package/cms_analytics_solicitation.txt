@@ -1,0 +1,183 @@
+SOLICITATION NUMBER: 75D301-26-R-00142
+NOTICE TYPE: Combined Synopsis/Solicitation
+POSTED DATE: April 14, 2026
+RESPONSE DATE: May 16, 2026, 2:00 PM Eastern Time
+
+AGENCY: Department of Health and Human Services (HHS)
+OFFICE: Centers for Medicare & Medicaid Services (CMS)
+CONTRACTING OFFICE ADDRESS: 7500 Security Blvd, Baltimore, MD 21244
+
+TITLE: Enterprise Data Analytics and Artificial Intelligence Support Services
+
+CLASSIFICATION:
+NAICS Code: 541512 — Computer Systems Design Services
+Product/Service Code: D310 — IT and Telecom - Cyber Security and Data Backup
+Set-Aside: Unrestricted (Full and Open Competition)
+
+CONTRACT TYPE: Indefinite Delivery/Indefinite Quantity (IDIQ), Time and Materials (T&M) task orders
+ESTIMATED VALUE: $75,000,000 (aggregate ceiling over 5-year ordering period)
+
+PERIOD OF PERFORMANCE:
+Base Period: 12 months from date of award
+Option Year 1: 12 months
+Option Year 2: 12 months
+Option Year 3: 12 months
+Option Year 4: 12 months
+Total potential period: 5 years
+
+PLACE OF PERFORMANCE: 
+Primary: CMS Headquarters, 7500 Security Blvd, Baltimore, MD 21244
+Secondary: Contractor facility (within the continental United States)
+Telework: Hybrid; up to 3 days per week remote work authorized for non-key personnel
+
+1.0 BACKGROUND
+
+The Centers for Medicare & Medicaid Services (CMS) administers the nation's major 
+healthcare programs, serving over 160 million Americans. CMS collects, processes, 
+and analyzes vast quantities of healthcare data to support program integrity, policy 
+development, quality measurement, and beneficiary services.
+
+CMS currently operates multiple legacy data analytics platforms that were developed 
+independently across program offices. These platforms use varying technology stacks, 
+have limited interoperability, and lack modern machine learning and artificial 
+intelligence (AI) capabilities. The agency seeks to modernize its data analytics 
+infrastructure and build enterprise AI capabilities that can be leveraged across 
+the organization.
+
+This procurement replaces the existing Enterprise Analytics Support contract 
+(Contract No. 75FCMC-20-D-0003) currently held by Accenture Federal Services, 
+which expires September 30, 2026.
+
+2.0 SCOPE OF WORK
+
+The contractor shall provide comprehensive data analytics, data engineering, and 
+artificial intelligence support services to CMS, including but not limited to:
+
+2.1 Data Platform Modernization
+- Migrate existing analytics workloads from on-premises infrastructure to CMS Cloud 
+  (AWS GovCloud) environments
+- Design and implement a unified data lakehouse architecture using modern tools 
+  (e.g., Databricks, Snowflake, or equivalent)
+- Establish data governance frameworks including metadata management, data quality 
+  monitoring, and lineage tracking
+- Implement role-based access controls and ensure compliance with HIPAA, FedRAMP High, 
+  and CMS Acceptable Risk Safeguards (ARS)
+
+2.2 Advanced Analytics and AI/ML
+- Develop and deploy machine learning models for fraud, waste, and abuse (FWA) 
+  detection across Medicare and Medicaid claims data
+- Build natural language processing (NLP) pipelines for automated review of 
+  clinical documentation, appeals, and provider correspondence
+- Create predictive models for beneficiary risk stratification and care management
+- Implement responsible AI practices consistent with OMB M-24-10 and the 
+  NIST AI Risk Management Framework
+- Evaluate and pilot large language model (LLM) applications for internal CMS 
+  use cases, including policy research assistance and regulatory document analysis
+
+2.3 Data Visualization and Reporting
+- Develop executive dashboards and self-service reporting tools using Tableau, 
+  Power BI, or equivalent platforms
+- Create automated reporting pipelines for congressionally mandated reports
+- Support ad hoc data requests from CMS leadership, OIG, and congressional offices
+
+2.4 Data Engineering and Operations
+- Maintain and optimize existing ETL/ELT pipelines processing over 2 billion 
+  claims records annually
+- Implement DataOps practices including CI/CD for data pipelines, automated 
+  testing, and monitoring
+- Provide 24/7 production support for mission-critical analytics systems with 
+  a 99.9% uptime SLA
+
+3.0 KEY PERSONNEL
+
+The following key personnel are required at time of proposal submission:
+
+3.1 Program Manager
+- Minimum 10 years of experience managing large-scale IT programs for federal 
+  healthcare agencies
+- PMP or equivalent certification required
+- Active Public Trust clearance (minimum)
+
+3.2 Chief Data Scientist
+- Ph.D. or Master's degree in Computer Science, Statistics, Data Science, or 
+  related field
+- Minimum 8 years of experience developing and deploying ML/AI models in 
+  healthcare or public sector environments
+- Demonstrated experience with responsible AI frameworks and bias mitigation
+
+3.3 Cloud Architecture Lead
+- AWS Solutions Architect Professional certification or equivalent
+- Minimum 8 years of experience designing cloud-based data platforms in 
+  FedRAMP High environments
+- Experience with HIPAA-compliant data architectures
+
+3.4 Data Engineering Lead
+- Minimum 8 years of experience in data engineering with expertise in 
+  distributed computing frameworks (Spark, Flink, or equivalent)
+- Experience processing healthcare claims data at scale (1B+ records)
+
+4.0 SECURITY REQUIREMENTS
+
+- All personnel must obtain and maintain a Public Trust clearance (Tier 2 
+  investigation) prior to accessing CMS systems
+- Key personnel must hold an active Public Trust clearance at time of award
+- Personnel accessing Protected Health Information (PHI) must complete annual 
+  HIPAA training and sign Business Associate Agreements
+- All systems must comply with FedRAMP High and CMS ARS requirements
+- Contractor must maintain a SOC 2 Type II certification
+
+5.0 EVALUATION CRITERIA
+
+This acquisition will be evaluated using a Best Value Tradeoff methodology. 
+Proposals will be evaluated against the following factors, listed in 
+descending order of importance:
+
+Factor 1: Technical Approach (Most Important)
+- Understanding of CMS data environment and healthcare analytics challenges
+- Proposed architecture for data platform modernization
+- AI/ML methodology and responsible AI practices
+- Innovation in approach to LLM integration
+
+Factor 2: Management Approach (Important)
+- Program management methodology and risk mitigation
+- Staffing plan and key personnel qualifications
+- Quality assurance and performance monitoring approach
+- Transition plan from incumbent contractor
+
+Factor 3: Past Performance (Important)
+- Relevant experience with federal healthcare data analytics
+- Demonstrated ability to deliver AI/ML solutions at scale
+- References from federal healthcare agencies
+- Note: Past Performance and Management Approach are approximately 
+  equal in importance
+
+Factor 4: Price (Less important than non-price factors combined)
+- Proposed labor rates by labor category
+- Rate escalation methodology for option years
+- Price reasonableness and realism analysis
+
+The Government will assess the overall best value by considering the 
+relative merits of non-price factors against price. The Government may 
+award to other than the lowest-priced offeror if the non-price factors 
+justify the price premium.
+
+6.0 INSTRUCTIONS TO OFFERORS
+
+Proposals shall be submitted electronically via the CMS eSubmission portal 
+(https://esubmission.cms.gov). Proposals are limited to:
+- Technical Volume: 50 pages (excluding resumes and past performance forms)
+- Past Performance Volume: 5 references using the attached PPQ form
+- Price Volume: No page limit; use the attached pricing template
+
+Questions regarding this solicitation must be submitted in writing to 
+the Contracting Officer, Janet Morrison (janet.morrison@cms.hhs.gov), 
+no later than April 28, 2026. Answers will be posted as an amendment 
+to this solicitation on SAM.gov.
+
+A virtual Industry Day will be held on April 22, 2026, at 1:00 PM ET 
+via Microsoft Teams. Registration is required; interested parties should 
+email the Contracting Officer by April 20, 2026, to receive the meeting link.
+
+CONTRACTING OFFICER: Janet Morrison
+EMAIL: janet.morrison@cms.hhs.gov
+PHONE: (410) 786-5432
