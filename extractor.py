@@ -107,7 +107,7 @@ Return your response as a JSON object with the following structure:
         "place_of_performance": "Location(s) where work will be performed"
     }},
     "requirements_summary": {{
-        "scope_overview": "2-3 sentence summary of what the government is buying",
+        "scope_overview": "1 sentence summary of what the government is buying",
         "key_requirements": ["List of the most important technical/functional requirements"],
         "clearance_requirements": "Security clearance level required, if any",
         "key_personnel": "Any specific roles or qualifications required"
@@ -127,6 +127,16 @@ Return your response as a JSON object with the following structure:
         "pursuit_recommendation": "Quick assessment: what type of firm is best positioned",
         "key_dates": ["List all critical dates and deadlines"],
         "risks_and_flags": ["Any red flags or concerns a BD team should investigate"]
+    }},
+    "proposal_outline": {{
+        "sections": [
+            {{
+                "title": "Proposal section title (e.g., Technical Approach, Management Approach, Past Performance, Price/Cost)",
+                "requirements_addressed": ["Key requirements from the solicitation that this section must address, by name or reference"],
+                "guidance": "One sentence on what to emphasize in this section to score well"
+            }}
+        ],
+        "win_themes": ["2-3 overarching themes or differentiators to thread throughout the entire proposal"]
     }}
 }}
 
@@ -198,6 +208,7 @@ def main():
         eval_criteria = parsed.get("evaluation_criteria", {})
         intel = parsed.get("competitive_intelligence", {})
         actions = parsed.get("bd_action_items", {})
+        outline = parsed.get("proposal_outline", {})
 
         print(f"\n  OPPORTUNITY: {overview.get('title', 'N/A')}")
         print(f"  SOLICITATION #: {overview.get('solicitation_number', 'N/A')}")
@@ -235,6 +246,24 @@ def main():
             print(f"\n  RISKS / FLAGS:")
             for i, risk in enumerate(risks, 1):
                 print(f"    {i}. {risk}")
+
+        # Print proposal outline
+        win_themes = outline.get("win_themes", [])
+        sections = outline.get("sections", [])
+        if win_themes or sections:
+            print(f"\n  PROPOSAL OUTLINE:")
+            if win_themes:
+                print(f"    Win Themes:")
+                for theme in win_themes:
+                    print(f"      - {theme}")
+            for section in sections:
+                print(f"\n    {section.get('title', 'Section')}:")
+                reqs = section.get("requirements_addressed", [])
+                if reqs:
+                    print(f"      Addresses: {', '.join(reqs)}")
+                guidance = section.get("guidance", "")
+                if guidance:
+                    print(f"      Note: {guidance}")
 
         print("\n" + "=" * 60)
 

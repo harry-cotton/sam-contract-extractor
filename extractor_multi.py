@@ -41,8 +41,11 @@ def read_all_documents(folder_path: str) -> str:
     would be more appropriate.
     """
 
-    # Find all .txt files in the folder
-    txt_files = sorted(glob.glob(os.path.join(folder_path, "*.txt")))
+    # Find all .txt files in the folder, excluding previously generated output files
+    txt_files = sorted(
+        f for f in glob.glob(os.path.join(folder_path, "*.txt"))
+        if not os.path.basename(f).endswith(("_extraction.txt", "_extracted.txt"))
+    )
 
     if not txt_files:
         print(f"Error: No .txt files found in {folder_path}")
@@ -101,7 +104,7 @@ criteria, instructions to offerors, pricing templates, and other attachments.
 Guidelines:
 - Synthesize information across ALL documents in the package
 - If the same field appears in multiple documents with different values, 
-  flag the discrepancy
+  flag the discrepancy in capital letters
 - Note which source document each key data point comes from when it adds clarity
 - Extract only what is explicitly stated — do not infer or assume
 - If a field is not found in ANY of the provided documents, mark it as "Not specified"
@@ -136,7 +139,7 @@ Return your response as a JSON object with the following structure:
         "place_of_performance": "Location(s) where work will be performed"
     }},
     "requirements_summary": {{
-        "scope_overview": "2-3 sentence summary of what the government is buying",
+        "scope_overview": "1 sentence summary of what the government is buying",
         "key_requirements": ["List of the most important technical/functional requirements"],
         "clearance_requirements": "Security clearance level required, if any",
         "key_personnel": "Any specific roles or qualifications required",
@@ -159,6 +162,16 @@ Return your response as a JSON object with the following structure:
         "key_dates": ["List all critical dates and deadlines from across all documents"],
         "risks_and_flags": ["Any red flags, inconsistencies between documents, or concerns a BD team should investigate"],
         "cross_document_discrepancies": ["Any contradictions or inconsistencies found between the provided documents"]
+    }},
+    "proposal_outline": {{
+        "sections": [
+            {{
+                "title": "Proposal section title (e.g., Technical Approach, Management Approach, Past Performance, Price/Cost)",
+                "requirements_addressed": ["Key requirements from the solicitation that this section must address, by name or reference"],
+                "guidance": "One sentence on what to emphasize in this section to score well"
+            }}
+        ],
+        "win_themes": ["2-3 overarching themes or differentiators to thread throughout the entire proposal"]
     }}
 }}
 
@@ -233,6 +246,7 @@ def main():
         eval_criteria = parsed.get("evaluation_criteria", {})
         intel = parsed.get("competitive_intelligence", {})
         actions = parsed.get("bd_action_items", {})
+        outline = parsed.get("proposal_outline", {})
 
         print(f"\n  OPPORTUNITY: {overview.get('title', 'N/A')}")
         print(f"  SOLICITATION #: {overview.get('solicitation_number', 'N/A')}")
@@ -280,6 +294,24 @@ def main():
             print(f"\n  CROSS-DOCUMENT DISCREPANCIES:")
             for i, d in enumerate(discrepancies, 1):
                 print(f"    {i}. {d}")
+
+        # Print proposal outline
+        win_themes = outline.get("win_themes", [])
+        sections = outline.get("sections", [])
+        if win_themes or sections:
+            print(f"\n  PROPOSAL OUTLINE:")
+            if win_themes:
+                print(f"    Win Themes:")
+                for theme in win_themes:
+                    print(f"      - {theme}")
+            for section in sections:
+                print(f"\n    {section.get('title', 'Section')}:")
+                reqs = section.get("requirements_addressed", [])
+                if reqs:
+                    print(f"      Addresses: {', '.join(reqs)}")
+                guidance = section.get("guidance", "")
+                if guidance:
+                    print(f"      Note: {guidance}")
 
         print("\n" + "=" * 60)
 
