@@ -1,0 +1,12 @@
+# Past performance decks contain real client data — keep off GitHub
+Past Performance/
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.env
+
+# OS
+.DS_Store
+Thumbs.db

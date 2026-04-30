@@ -1,5 +1,5 @@
 """
-SAM.gov Contract Data Extractor — Multi-Document Version
+SAM.gov Contract Data Extractor -- Multi-Document Version
 =========================================================
 An enhanced version of the extractor that processes an entire solicitation
 package (multiple files in a folder) rather than a single document.
@@ -7,15 +7,16 @@ package (multiple files in a folder) rather than a single document.
 Real-world solicitations on SAM.gov often include multiple attachments:
 - The SAM.gov synopsis/notice
 - Performance Work Statement (PWS) or Statement of Work (SOW)
-- Section L — Instructions to Offerors
-- Section M — Evaluation Criteria
-- Pricing template or CLIN structure
+- Section L -- Instructions to Offerors
+- Section M -- Evaluation Criteria
+- Pricing template or CLIN structure (Excel)
 - Contract Data Requirements List (CDRLs)
 - Attachments (org charts, security requirements, past performance forms)
 
-This tool reads all .txt files in a specified folder, labels each one
-by filename so Claude can distinguish between documents, and sends the
-full package for extraction.
+Supported file types: .txt, .pdf, .docx, .xlsx, .xls
+
+Required libraries (install once):
+    pip install anthropic pdfplumber python-docx openpyxl
 
 Built to demonstrate government-relevant AI use cases using the Anthropic API.
 
@@ -29,91 +30,201 @@ import json
 import glob
 
 
-def read_all_documents(folder_path: str) -> str:
-    """
-    Reads all .txt files in a folder and combines them into a single
-    labeled string. Each document is clearly marked with its filename
-    so Claude can reference specific source documents in its extraction.
+# ============================================================
+# STEP 1: FILE TYPE EXTRACTORS
+# ============================================================
 
-    This approach — concatenating documents with clear labels — is simpler
-    than RAG for small-to-medium document packages (under ~50 pages total).
-    For very large solicitation packages, a chunking/retrieval approach
-    would be more appropriate.
-    """
+def extract_text_from_txt(file_path: str) -> str:
+    with open(file_path, "r", encoding="utf-8") as f:
+        return f.read()
 
-    # Find all .txt files in the folder, excluding previously generated output files
-    txt_files = sorted(
-        f for f in glob.glob(os.path.join(folder_path, "*.txt"))
-        if not os.path.basename(f).endswith(("_extraction.txt", "_extracted.txt"))
-    )
 
-    if not txt_files:
-        print(f"Error: No .txt files found in {folder_path}")
+def extract_text_from_pdf(file_path: str) -> str:
+    try:
+        import pdfplumber
+    except ImportError:
+        print("Error: pdfplumber is required for PDF files. Run: pip install pdfplumber")
         sys.exit(1)
 
-    print(f"Found {len(txt_files)} document(s):")
-    for f in txt_files:
+    text = ""
+    with pdfplumber.open(file_path) as pdf:
+        for i, page in enumerate(pdf.pages):
+            page_text = page.extract_text()
+            if page_text:
+                text += f"[Page {i + 1}]\n{page_text}\n\n"
+    return text
+
+
+def extract_text_from_docx(file_path: str) -> str:
+    try:
+        from docx import Document
+    except ImportError:
+        print("Error: python-docx is required for Word files. Run: pip install python-docx")
+        sys.exit(1)
+
+    doc = Document(file_path)
+    paragraphs = [p.text for p in doc.paragraphs if p.text.strip()]
+
+    # Also extract text from tables
+    for table in doc.tables:
+        for row in table.rows:
+            cells = [cell.text.strip() for cell in row.cells if cell.text.strip()]
+            if cells:
+                paragraphs.append(" | ".join(cells))
+
+    return "\n".join(paragraphs)
+
+
+def extract_text_from_excel(file_path: str) -> str:
+    try:
+        import openpyxl
+    except ImportError:
+        print("Error: openpyxl is required for Excel files. Run: pip install openpyxl")
+        sys.exit(1)
+
+    wb = openpyxl.load_workbook(file_path, data_only=True)
+    text = ""
+
+    for sheet_name in wb.sheetnames:
+        ws = wb[sheet_name]
+
+        # Collect non-empty rows
+        rows = []
+        for row in ws.iter_rows(values_only=True):
+            cells = [str(cell) if cell is not None else "" for cell in row]
+            if any(c.strip() for c in cells):
+                rows.append(cells)
+
+        if not rows:
+            continue
+
+        text += f"[Sheet: {sheet_name}]\n"
+        text += " | ".join(rows[0]) + "\n"
+        text += "-" * 60 + "\n"
+        for row in rows[1:]:
+            text += " | ".join(row) + "\n"
+        text += "\n"
+
+    return text
+
+
+# ============================================================
+# STEP 2: DOCUMENT READER
+# ============================================================
+
+SUPPORTED_EXTENSIONS = {
+    ".txt":  extract_text_from_txt,
+    ".pdf":  extract_text_from_pdf,
+    ".docx": extract_text_from_docx,
+    ".xlsx": extract_text_from_excel,
+    ".xls":  extract_text_from_excel,
+}
+
+OUTPUT_SUFFIXES = (
+    "_extraction.txt",
+    "_extracted.txt",
+    "_full_extraction.json",
+    "_raw_extraction.txt",
+)
+
+FILE_TYPE_LABELS = {
+    "txt": "Text", "pdf": "PDF", "docx": "Word", "xlsx": "Excel", "xls": "Excel"
+}
+
+
+def read_all_documents(folder_path: str) -> str:
+    """
+    Reads all supported files in a folder and combines them into a single
+    labeled string. Each document is clearly marked with its filename and
+    type so Claude can reference specific source documents in its extraction.
+
+    Previously generated output files are excluded automatically.
+    """
+
+    all_files = []
+    for ext, extractor in SUPPORTED_EXTENSIONS.items():
+        for f in glob.glob(os.path.join(folder_path, f"*{ext}")):
+            basename = os.path.basename(f)
+            if not any(basename.endswith(suffix) for suffix in OUTPUT_SUFFIXES):
+                all_files.append((f, extractor))
+
+    all_files.sort(key=lambda x: x[0])
+
+    if not all_files:
+        print(f"Error: No supported documents found in {folder_path}")
+        print(f"Supported types: {', '.join(SUPPORTED_EXTENSIONS.keys())}")
+        sys.exit(1)
+
+    print(f"Found {len(all_files)} document(s):")
+    for f, _ in all_files:
         print(f"  - {os.path.basename(f)}")
     print()
 
-    # Combine all documents with clear separators and labels
     combined_text = ""
-    for file_path in txt_files:
+    for file_path, extractor in all_files:
         filename = os.path.basename(file_path)
-        with open(file_path, "r", encoding="utf-8") as f:
-            content = f.read()
+        ext = os.path.splitext(filename)[1].lower().lstrip(".")
+        file_type = FILE_TYPE_LABELS.get(ext, ext.upper())
+
+        print(f"  Reading {file_type}: {filename}...")
+        content = extractor(file_path)
+
         combined_text += f"\n{'='*60}\n"
-        combined_text += f"DOCUMENT: {filename}\n"
+        combined_text += f"DOCUMENT: {filename} [{file_type}]\n"
         combined_text += f"{'='*60}\n\n"
         combined_text += content
         combined_text += "\n\n"
 
+    print()
     return combined_text
 
+
+# ============================================================
+# STEP 3: EXTRACT -- Send to Claude and get structured JSON
+# ============================================================
 
 def extract_contract_data(folder_path: str) -> str:
     """
     Reads all documents in a solicitation package folder and extracts
     structured fields using Claude's API.
 
-    The key difference from the single-document version: the prompt
-    instructs Claude to synthesize information across multiple documents,
-    noting which document each data point came from when possible. This
-    mirrors how a BD analyst would work — cross-referencing the synopsis
-    with the PWS, checking Section M against Section L, etc.
+    The prompt instructs Claude to synthesize information across multiple
+    documents, noting which document each data point came from. This mirrors
+    how a BD analyst would work -- cross-referencing the synopsis with the
+    PWS, checking Section M against Section L, flagging discrepancies, etc.
     """
 
     combined_text = read_all_documents(folder_path)
 
     client = anthropic.Anthropic()
 
-    system_prompt = """You are a senior government contracts Business Development 
-analyst with 15 years of experience in federal procurement. You specialize in 
-rapidly qualifying contract opportunities from SAM.gov by extracting key data 
+    system_prompt = """You are a senior government contracts Business Development
+analyst with 15 years of experience in federal procurement. You specialize in
+rapidly qualifying contract opportunities from SAM.gov by extracting key data
 points that inform bid/no-bid decisions.
 
-You understand FAR/DFARS procurement terminology, NAICS codes, contract types 
-(FFP, T&M, CPFF, CPAF, IDIQ, BPA, etc.), set-aside categories (8(a), SDVOSB, 
-HUBZone, WOSB, etc.), and evaluation methodologies (LPTA, best value, 
+You understand FAR/DFARS procurement terminology, NAICS codes, contract types
+(FFP, T&M, CPFF, CPAF, IDIQ, BPA, etc.), set-aside categories (8(a), SDVOSB,
+HUBZone, WOSB, etc.), and evaluation methodologies (LPTA, best value,
 tradeoff analysis).
 
-You are being given a COMPLETE SOLICITATION PACKAGE consisting of multiple 
-documents. These may include the SAM.gov synopsis, a PWS/SOW, evaluation 
+You are being given a COMPLETE SOLICITATION PACKAGE consisting of multiple
+documents. These may include the SAM.gov synopsis, a PWS/SOW, evaluation
 criteria, instructions to offerors, pricing templates, and other attachments.
 
 Guidelines:
 - Synthesize information across ALL documents in the package
-- If the same field appears in multiple documents with different values, 
+- If the same field appears in multiple documents with different values,
   flag the discrepancy in capital letters
 - Note which source document each key data point comes from when it adds clarity
-- Extract only what is explicitly stated — do not infer or assume
+- Extract only what is explicitly stated -- do not infer or assume
 - If a field is not found in ANY of the provided documents, mark it as "Not specified"
 - Flag any inconsistencies or contradictions between documents
 - Be precise with FAR/DFARS terminology, dates, and dollar figures"""
 
-    user_prompt = f"""Analyze the following federal contract opportunity package from 
+    user_prompt = f"""Analyze the following federal contract opportunity package from
 SAM.gov. This package contains multiple documents from the same solicitation.
-Extract the key fields into a structured format by synthesizing information 
+Extract the key fields into a structured format by synthesizing information
 across all provided documents.
 
 Return your response as a JSON object with the following structure:
@@ -185,7 +296,7 @@ SOLICITATION PACKAGE:
 
     message = client.messages.create(
         model="claude-sonnet-4-6",
-        max_tokens=8192,
+        max_tokens=16000,
         system=system_prompt,
         messages=[
             {"role": "user", "content": user_prompt}
@@ -195,23 +306,25 @@ SOLICITATION PACKAGE:
     return message.content[0].text
 
 
+# ============================================================
+# STEP 4: MAIN -- Display results and save JSON
+# ============================================================
+
 def main():
     """
     Entry point: accepts a folder path containing solicitation documents,
-    runs the extractor across all documents, and outputs results.
+    runs the extractor across all files, and outputs results.
 
     Usage:
-        python extractor_multi.py "Sample Contracts/CMS_Package"
+        python extractor_multi.py "Sample Contracts/Peacecorps_package"
 
-    The folder should contain .txt files representing the various
-    documents in a solicitation package.
+    The folder can contain any mix of .txt, .pdf, .docx, .xlsx, and .xls files.
     """
 
     if len(sys.argv) < 2:
         print("Usage: python extractor_multi.py <path_to_solicitation_folder>")
         print("Example: python extractor_multi.py \"Sample Contracts\\CMS_Package\"")
-        print("\nThe folder should contain .txt files for each document")
-        print("in the solicitation package (synopsis, PWS, Section L/M, etc.)")
+        print(f"\nSupported file types: {', '.join(SUPPORTED_EXTENSIONS.keys())}")
         sys.exit(1)
 
     folder_path = sys.argv[1]
@@ -267,35 +380,30 @@ def main():
         print(f"  EVAL METHOD: {eval_criteria.get('evaluation_method', 'N/A')}")
         print(f"  INCUMBENT: {intel.get('incumbent', 'N/A')}")
 
-        # Key requirements
         key_reqs = requirements.get("key_requirements", [])
         if key_reqs:
             print(f"\n  KEY REQUIREMENTS:")
             for i, req in enumerate(key_reqs, 1):
                 print(f"    {i}. {req}")
 
-        # Evaluation factors
         factors = eval_criteria.get("factors", [])
         if factors:
             print(f"\n  EVALUATION FACTORS:")
             for i, factor in enumerate(factors, 1):
                 print(f"    {i}. {factor}")
 
-        # Risks and flags
         risks = actions.get("risks_and_flags", [])
         if risks:
             print(f"\n  RISKS / FLAGS:")
             for i, risk in enumerate(risks, 1):
                 print(f"    {i}. {risk}")
 
-        # Cross-document discrepancies — unique to multi-doc version
         discrepancies = actions.get("cross_document_discrepancies", [])
         if discrepancies:
             print(f"\n  CROSS-DOCUMENT DISCREPANCIES:")
             for i, d in enumerate(discrepancies, 1):
                 print(f"    {i}. {d}")
 
-        # Print proposal outline
         win_themes = outline.get("win_themes", [])
         sections = outline.get("sections", [])
         if win_themes or sections:
@@ -315,7 +423,6 @@ def main():
 
         print("\n" + "=" * 60)
 
-        # Save the full JSON output
         folder_name = os.path.basename(os.path.normpath(folder_path))
         output_path = os.path.join(folder_path, f"{folder_name}_full_extraction.json")
         with open(output_path, "w", encoding="utf-8") as f:
@@ -324,7 +431,7 @@ def main():
 
     except json.JSONDecodeError:
         print("Note: Response was not valid JSON. Showing raw output.\n")
-        print(raw_response)
+        sys.stdout.buffer.write(raw_response.encode("utf-8", errors="replace") + b"\n")
 
         folder_name = os.path.basename(os.path.normpath(folder_path))
         output_path = os.path.join(folder_path, f"{folder_name}_raw_extraction.txt")
