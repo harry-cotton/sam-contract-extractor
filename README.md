@@ -6,9 +6,7 @@ This started as a simple data extractor and kept growing as I realised each outp
 
 ## The Problem
 
-BD teams spend hours manually triaging SAM.gov solicitations. A single opportunity can run 50-100+ pages across multiple attachments, and a busy team may need to review dozens per week. The question is always the same: **should we bid on this, and if so, how?**
-
-Beyond triage, the early proposal work — structuring a response, matching past performance to requirements, drafting the first cut of each volume — is time-consuming and often repetitive. The requirements change, but the process doesn't.
+Responding to government soliciations is currently very manual and time consuming. Sometimes the solicication docs are long, complicated and contain small inconsistencies. The docs need to be read, cross referenced and then matched to past performance examples, all before writers can start crafting a compelling response.
 
 This pipeline automates that work, from first read to first draft.
 
