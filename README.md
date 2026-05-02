@@ -2,7 +2,7 @@
 
 A pipeline I built using the Anthropic Claude API to automate the early stages of a government contracting BD workflow — from reading a raw solicitation all the way through to a near-finished proposal draft.
 
-I work in govcon and wanted to see how far I could take Claude Code on a task that we do manually. This started as a simple data extractor and kept growing as I realised each output could feed the next step.
+This started as a simple data extractor and kept growing as I realised each output could feed the next step.
 
 ## The Problem
 
