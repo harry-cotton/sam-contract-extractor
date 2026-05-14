@@ -29,92 +29,17 @@ import anthropic
 import sys
 import os
 import json
-import glob
 from pathlib import Path
 
-
-# ============================================================
-# STEP 1: EXTRACT TEXT FROM POWERPOINT DECKS
-# ============================================================
-
-def extract_text_from_pptx(file_path: str) -> str:
-    """
-    Pulls all readable text from a PowerPoint file: slide titles, text boxes,
-    tables, and speaker notes. Labels each slide so Claude can follow the
-    structure of the deck.
-    """
-    try:
-        from pptx import Presentation
-    except ImportError:
-        print("Error: python-pptx is required. Run: pip install python-pptx")
-        sys.exit(1)
-
-    prs = Presentation(file_path)
-    slides_text = []
-
-    for i, slide in enumerate(prs.slides):
-        slide_content = []
-
-        # Slide title
-        if slide.shapes.title and slide.shapes.title.text.strip():
-            slide_content.append(f"[Slide {i + 1}]: {slide.shapes.title.text.strip()}")
-        else:
-            slide_content.append(f"[Slide {i + 1}]")
-
-        # All other shapes
-        for shape in slide.shapes:
-            if shape == slide.shapes.title:
-                continue
-            if shape.has_table:
-                for row in shape.table.rows:
-                    cells = [cell.text.strip() for cell in row.cells if cell.text.strip()]
-                    if cells:
-                        slide_content.append(" | ".join(cells))
-            elif hasattr(shape, "text") and shape.text.strip():
-                slide_content.append(shape.text.strip())
-
-        # Speaker notes
-        if slide.has_notes_slide:
-            notes = slide.notes_slide.notes_text_frame.text.strip()
-            if notes:
-                slide_content.append(f"[Notes]: {notes}")
-
-        if len(slide_content) > 1:
-            slides_text.append("\n".join(slide_content))
-
-    return "\n\n".join(slides_text)
-
-
-def read_past_performance_decks(folder_path: str) -> list:
-    """
-    Reads all .pptx files in the past performance folder.
-    Returns a list of dicts: {filename, text}.
-    """
-    pptx_files = sorted(glob.glob(os.path.join(folder_path, "*.pptx")))
-
-    if not pptx_files:
-        print(f"Error: No .pptx files found in {folder_path}")
-        sys.exit(1)
-
-    decks = []
-    print(f"Found {len(pptx_files)} past performance deck(s):")
-    for f in pptx_files:
-        print(f"  - {os.path.basename(f)}")
-        text = extract_text_from_pptx(f)
-        decks.append({"filename": os.path.basename(f), "text": text})
-
-    return decks
-
-
-def format_decks_for_prompt(decks: list) -> str:
-    combined = ""
-    for deck in decks:
-        combined += f"\n{'='*60}\n"
-        combined += f"PAST PERFORMANCE DECK: {deck['filename']}\n"
-        combined += f"{'='*60}\n\n"
-        combined += deck["text"]
-        combined += "\n\n"
-    return combined
+# Shared utilities — see utils.py for the actual implementations
+from utils import (
+    markdown_to_docx,
+    extract_text_from_pptx,
+    read_past_performance_decks,
+    format_decks_for_prompt,
+    check_banned_words,
+    warn_on_banned_words,
+)
 
 
 # ============================================================
@@ -129,7 +54,7 @@ def build_solicitation_context(extraction: dict) -> tuple:
     """
     opportunity = extraction.get("opportunity_overview", {})
     requirements = extraction.get("requirements_summary", {})
-    eval_criteria = extraction.get("evaluation_criteria", {})
+    section_m = extraction.get("section_m", {})
     outline = extraction.get("proposal_outline", {})
 
     # Find the past performance section in the proposal outline
@@ -139,6 +64,23 @@ def build_solicitation_context(extraction: dict) -> tuple:
         {}
     )
 
+    # Filter Section M factors that relate to past performance
+    pp_factors = [
+        f for f in section_m.get("factors", [])
+        if isinstance(f, dict) and "past performance" in f.get("name", "").lower()
+    ]
+    if not pp_factors:
+        pp_factors_text = "  Not specified"
+    else:
+        lines = []
+        for f in pp_factors:
+            line = f"  - {f.get('name', 'N/A')} [{f.get('weight', 'N/A')}]"
+            subs = f.get("subfactors", [])
+            if subs:
+                line += "\n" + "\n".join(f"      * {s}" for s in subs)
+            lines.append(line)
+        pp_factors_text = "\n".join(lines)
+
     context = f"""OPPORTUNITY: {opportunity.get('title', 'N/A')}
 AGENCY: {opportunity.get('agency', 'N/A')}
 SOLICITATION #: {opportunity.get('solicitation_number', 'N/A')}
@@ -147,9 +89,8 @@ SCOPE: {requirements.get('scope_overview', 'N/A')}
 KEY REQUIREMENTS:
 {chr(10).join(f'  - {r}' for r in requirements.get('key_requirements', []))}
 
-PAST PERFORMANCE EVALUATION CRITERIA:
-{chr(10).join(f'  - {f}' for f in eval_criteria.get('factors', [])
-              if 'past performance' in f.lower()) or '  Not specified'}
+PAST PERFORMANCE EVALUATION CRITERIA (from Section M):
+{pp_factors_text}
 
 PROPOSAL OUTLINE GUIDANCE FOR PAST PERFORMANCE VOLUME:
   Requirements to address: {', '.join(pp_outline.get('requirements_addressed', ['Not specified']))}
@@ -272,14 +213,38 @@ STANDARD FORMAT FOR EACH ENTRY:
   [Quantified bullet points. Use real numbers from the source material wherever
   possible. Flag as [TO BE CONFIRMED] if the deck does not include a specific metric.]
 
-BANNED WORDS — NEVER use these words anywhere in the output, including in
+GROUNDING -- NO FABRICATED OPERATIONAL SPECIFICS:
+Every quantified claim in the past performance volume must come from one of the
+provided PP decks. Do NOT invent operational specifics that are not in the source
+decks. This includes (but is not limited to):
+- Durations (hours, days, weeks to complete X)
+- Effort estimates (FTE counts, hours per task)
+- Cost figures and contract values
+- Performance percentages (uptime, accuracy, conversion rates, reduction percentages)
+- Headcounts (people trained, supported, hired)
+- Time-to-value claims
+
+If a specific number is needed for the narrative and is not in the deck, write
+[TO BE CONFIRMED] in its place. Fabricated operational specifics are a disqualifying
+failure mode -- they will be caught in proposal review and they damage credibility
+with the evaluator.
+
+WRITING STYLE -- PAGE-ECONOMY DISCIPLINE:
+Past performance volumes typically have a defined page cap. Each reference should
+be tight: 1-2 pages of polished prose in standard format, not 4 pages of padded
+narrative. Lead with what was delivered, back with measurable outcomes, then
+state relevance to this opportunity. No "executive summary" buildups that
+restate the same claim three ways.
+
+BANNED WORDS -- NEVER use these words anywhere in the output, including in
 headings, narratives, relevance statements, and bullet points:
 - "ensure" (compliance flag)
 - "ensuring" (compliance flag)
 
 If you would naturally write one of these words, rewrite the sentence to
 avoid it entirely. Do not substitute with a close synonym that carries the
-same meaning in a hollow way.
+same meaning in a hollow way. A deterministic post-generation regex check
+will catch any instance of these words and produce a compliance warning.
 
 CLOSING SECTION:
 After the narratives, include:
@@ -361,17 +326,25 @@ def main():
     print("Drafting past performance narratives...\n")
     draft = write_past_performance(extraction, decks, firm_config)
 
-    # Save as markdown alongside the extraction JSON
+    # Post-generation compliance check — banned words must not appear in
+    # federal proposal output. System-prompt enforcement is unreliable so we
+    # check deterministically and warn loudly. Caller decides whether to act.
+    findings = check_banned_words(draft, label="PP Volume")
+    warn_on_banned_words(findings, label="PP Volume")
+
     json_dir = os.path.dirname(os.path.abspath(json_path))
     stem = Path(json_path).stem.replace("_full_extraction", "")
-    output_path = os.path.join(json_dir, f"{stem}_past_performance_draft.md")
+    output_path = os.path.join(json_dir, f"{stem}_past_performance_draft.docx")
 
-    with open(output_path, "w", encoding="utf-8") as f:
-        f.write(f"# Past Performance Draft\n")
-        f.write(f"**Opportunity:** {opportunity_title}  \n")
-        f.write(f"**Source:** {os.path.basename(json_path)}  \n\n")
-        f.write("---\n\n")
-        f.write(draft)
+    markdown_to_docx(
+        draft_text=draft,
+        title="Past Performance Draft",
+        subtitle_lines=[
+            f"Opportunity: {opportunity_title}",
+            f"Source: {os.path.basename(json_path)}",
+        ],
+        output_path=output_path,
+    )
 
     print("=" * 60)
     print(draft)

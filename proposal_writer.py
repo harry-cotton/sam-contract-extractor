@@ -32,81 +32,18 @@ import anthropic
 import sys
 import os
 import json
-import glob
 from pathlib import Path
 
-
-# ============================================================
-# STEP 1: EXTRACT TEXT FROM POWERPOINT DECKS
-# (shared logic with pp_writer.py)
-# ============================================================
-
-def extract_text_from_pptx(file_path: str) -> str:
-    try:
-        from pptx import Presentation
-    except ImportError:
-        print("Error: python-pptx is required. Run: pip install python-pptx")
-        sys.exit(1)
-
-    prs = Presentation(file_path)
-    slides_text = []
-
-    for i, slide in enumerate(prs.slides):
-        slide_content = []
-
-        if slide.shapes.title and slide.shapes.title.text.strip():
-            slide_content.append(f"[Slide {i + 1}]: {slide.shapes.title.text.strip()}")
-        else:
-            slide_content.append(f"[Slide {i + 1}]")
-
-        for shape in slide.shapes:
-            if shape == slide.shapes.title:
-                continue
-            if shape.has_table:
-                for row in shape.table.rows:
-                    cells = [cell.text.strip() for cell in row.cells if cell.text.strip()]
-                    if cells:
-                        slide_content.append(" | ".join(cells))
-            elif hasattr(shape, "text") and shape.text.strip():
-                slide_content.append(shape.text.strip())
-
-        if slide.has_notes_slide:
-            notes = slide.notes_slide.notes_text_frame.text.strip()
-            if notes:
-                slide_content.append(f"[Notes]: {notes}")
-
-        if len(slide_content) > 1:
-            slides_text.append("\n".join(slide_content))
-
-    return "\n\n".join(slides_text)
-
-
-def read_past_performance_decks(folder_path: str) -> list:
-    pptx_files = sorted(glob.glob(os.path.join(folder_path, "*.pptx")))
-
-    if not pptx_files:
-        print(f"Error: No .pptx files found in {folder_path}")
-        sys.exit(1)
-
-    decks = []
-    print(f"Found {len(pptx_files)} past performance deck(s):")
-    for f in pptx_files:
-        print(f"  - {os.path.basename(f)}")
-        text = extract_text_from_pptx(f)
-        decks.append({"filename": os.path.basename(f), "text": text})
-
-    return decks
-
-
-def format_decks_for_prompt(decks: list) -> str:
-    combined = ""
-    for deck in decks:
-        combined += f"\n{'='*60}\n"
-        combined += f"PAST PERFORMANCE DECK: {deck['filename']}\n"
-        combined += f"{'='*60}\n\n"
-        combined += deck["text"]
-        combined += "\n\n"
-    return combined
+# Shared utilities — see utils.py for implementations
+from utils import (
+    markdown_to_docx,
+    extract_text_from_pptx,
+    read_past_performance_decks,
+    format_decks_for_prompt,
+    check_banned_words,
+    warn_on_banned_words,
+    compute_word_budget,
+)
 
 
 # ============================================================
@@ -146,10 +83,24 @@ def build_full_solicitation_context(extraction: dict) -> str:
     overview = extraction.get("opportunity_overview", {})
     details = extraction.get("contract_details", {})
     requirements = extraction.get("requirements_summary", {})
-    eval_criteria = extraction.get("evaluation_criteria", {})
+    section_l = extraction.get("section_l", {})
+    section_m = extraction.get("section_m", {})
     intel = extraction.get("competitive_intelligence", {})
     actions = extraction.get("bd_action_items", {})
     outline = extraction.get("proposal_outline", {})
+
+    sub_req = section_l.get("submission_requirements", {})
+    factors = section_m.get("factors", [])
+    factor_lines = []
+    for f in factors:
+        if isinstance(f, dict):
+            line = f"  - {f.get('name', 'N/A')} [{f.get('weight', 'N/A')}]"
+            subs = f.get("subfactors", [])
+            if subs:
+                line += "\n" + "\n".join(f"      * {s}" for s in subs)
+            factor_lines.append(line)
+        else:
+            factor_lines.append(f"  - {f}")
 
     context = f"""OPPORTUNITY: {overview.get('title', 'N/A')}
 AGENCY: {overview.get('agency', 'N/A')}
@@ -166,13 +117,25 @@ SCOPE:
 KEY REQUIREMENTS:
 {chr(10).join(f'  - {r}' for r in requirements.get('key_requirements', []))}
 
-EVALUATION METHOD: {eval_criteria.get('evaluation_method', 'N/A')}
+SECTION M — EVALUATION METHOD: {section_m.get('evaluation_method', 'N/A')}
 
-EVALUATION FACTORS:
-{chr(10).join(f'  - {f}' for f in eval_criteria.get('factors', []))}
+SECTION M — EVALUATION FACTORS (in order of importance):
+{chr(10).join(factor_lines) if factor_lines else '  Not specified'}
 
-SUBMISSION REQUIREMENTS:
-{eval_criteria.get('submission_requirements', 'N/A')}
+SECTION L — SUBMISSION REQUIREMENTS:
+  Page limit (total): {sub_req.get('page_limit_total', 'Not specified')}
+  Page limits by volume: {sub_req.get('page_limits_by_volume', 'Not specified')}
+  Font: {sub_req.get('font', 'Not specified')}
+  Line spacing: {sub_req.get('line_spacing', 'Not specified')}
+  File format: {sub_req.get('file_format', 'Not specified')}
+  Copies: {sub_req.get('copies', 'Not specified')}
+  Submission method: {sub_req.get('submission_method', 'Not specified')}
+
+SECTION L — REQUIRED VOLUMES:
+{chr(10).join(f'  - {v}' for v in section_l.get('volume_structure', [])) or '  Not specified'}
+
+SECTION L — SIGNING REQUIREMENTS:
+{section_l.get('signing_requirements', 'Not specified')}
 
 COMPETITIVE INTELLIGENCE:
   Incumbent: {intel.get('incumbent', 'N/A')}
@@ -212,6 +175,10 @@ def write_full_proposal(extraction: dict, decks: list, firm_config: dict) -> str
     Claude writes a complete, near-finished proposal response structured
     around the proposal outline from the extraction JSON, with PP examples
     woven in as evidence throughout.
+
+    Computes an explicit target word budget from the Section L page limit
+    and passes it to the model so page discipline is a concrete number, not
+    a fuzzy instruction.
     """
     solicitation_context = build_full_solicitation_context(extraction)
     decks_text = format_decks_for_prompt(decks)
@@ -219,6 +186,27 @@ def write_full_proposal(extraction: dict, decks: list, firm_config: dict) -> str
     firm_description = firm_config.get("firm_description", "")
     firm_capabilities = firm_config.get("firm_capabilities", "")
     certs = ", ".join(firm_config.get("certifications", []))
+
+    # Compute an explicit target word budget from the Section L page limit.
+    # This converts "respect the page limit" (fuzzy) into "aim for ~7000 words"
+    # (concrete). System-prompt enforcement is unreliable on fuzzy targets.
+    sub_req = extraction.get("section_l", {}).get("submission_requirements", {})
+    page_limit_total = sub_req.get("page_limit_total")
+    word_budget = compute_word_budget(page_limit_total)
+    if word_budget:
+        budget_instruction = (
+            f"TARGET WORD BUDGET: ~{word_budget:,} words across all evaluated content "
+            f"(derived from a page limit of {page_limit_total} at ~600 words per page in "
+            f"10pt Times New Roman / 1-inch margins / single-spaced). "
+            f"Tables and headings count against this budget; calibrate prose accordingly. "
+            f"Going significantly over this budget will produce a non-compliant draft."
+        )
+    else:
+        budget_instruction = (
+            "TARGET WORD BUDGET: No page limit specified in the extraction. Write at a "
+            "reasonable length for federal proposal evaluators - tight, evidence-backed, "
+            "no padding."
+        )
 
     client = anthropic.Anthropic()
 
@@ -249,29 +237,59 @@ proposal volume. Each section must:
 5. Proactively address any relevant risks or flags identified in the solicitation
    analysis where doing so strengthens the proposal
 
+WRITING STYLE -- PAGE-ECONOMY DISCIPLINE:
+Section L page limits are non-negotiable. Every line costs you. Write to the
+following discipline:
+- Structure each section as: name the requirement, state what {firm_name} will do,
+  back the claim with PP evidence -- in that order, in flowing prose. Do not write
+  "executive summary" buildups that restate the requirement before answering it.
+- Lead with action: "{firm_name} will deliver..." or "We provide..." -- not "It is
+  our intention to..." or "The platform supports..."
+- A specific TARGET WORD BUDGET is stated at the top of the user prompt. Treat it
+  as a hard target, not a suggestion. Distribute the budget across volumes
+  proportional to their declared page limits. Drafts exceeding the budget by
+  more than ~10% are non-compliant and will need to be rewritten.
+- Tables and small frameworks are encouraged where they save space versus prose
+  (implementation timelines, KPI tracking, channel mix, compliance matrices,
+  staffing matrices). Keep them tight: 4-6 columns max, 5-10 rows max.
+
 PAST PERFORMANCE INTEGRATION:
-Do not write a separate past performance section as a list of narratives. Instead:
-- In the Technical section, cite PP examples that prove you have done this before
-- In the Management section, cite PP examples that demonstrate your QCP, key personnel,
-  and phase-in approach
-- In the dedicated Past Performance section (if one exists in the outline), write
-  full structured narratives in standard govcon format
+- Cite PP inline within the prose of the Technical and Management sections, in the
+  same sentence or paragraph as the claim it supports. Do NOT create dedicated
+  "Relevance to evaluation criteria" sub-paragraphs in the Technical volume. Example:
+  "We will maintain a 99.9% uptime SLA -- the same commitment we have delivered to
+  SSA at a measured 99.97% over Year 1."
+- In the dedicated Past Performance volume (if one exists in the outline), write
+  structured narratives in standard govcon format, but keep them tight.
 - Every capability claim should be backed by at least one reference to a specific
-  past project, metric, or outcome from the PP decks
+  past project, metric, or outcome from the PP decks.
+- DO NOT invent operational specifics (durations, effort estimates, cost figures,
+  performance percentages, headcount, time-to-value claims) that are not in the
+  source PP decks. If a specific number is needed and not in the decks, write
+  [TO BE CONFIRMED] in its place. Fabricated operational specifics are a
+  disqualifying failure mode.
 
 BANNED WORDS -- never use these anywhere in the output:
 - "ensure" or "ensuring"
+If you would naturally write either word, rewrite the sentence to avoid it
+entirely. Do not substitute a hollow synonym.
 
 FORMAT:
-- Use clear markdown headers matching the proposal volume titles from the outline
-- Write in third person / first person plural ("we / our / {firm_name}")
-- Use professional proposal language -- active voice, specific, confident
-- Flag missing data as [TO BE CONFIRMED] so staff know what to verify
+- Heading depth: TWO LEVELS MAX. Use "## 1.0 Section Title" and optionally
+  "### 1.1 Subsection Title". DO NOT use three-level headings (1.1.1) or deeper.
+- Do not use horizontal-rule dividers (---) inside a volume's body. Use them only
+  between top-level volumes.
+- Match the volume titles from the outline.
+- Write in first-person plural ("we / our / {firm_name}").
+- Active voice. Specific. Confident.
+- Flag missing data as [TO BE CONFIRMED].
 - After all proposal sections, include a brief "Proposal Team Checklist" of the
-  top 5 items staff must verify or complete before submission"""
+  top 5 items staff must verify or complete before submission."""
 
     user_prompt = f"""Write a complete, near-finished proposal response for {firm_name} using the
 solicitation context and past performance decks below.
+
+{budget_instruction}
 
 Structure the response exactly according to the PROPOSAL OUTLINE sections listed in
 the solicitation context. For each section, write polished proposal prose that
@@ -287,16 +305,30 @@ This should read like a draft that needs light editing -- not a template.
 {decks_text}
 
 Write the complete proposal response now, section by section, followed by the
-Proposal Team Checklist."""
+Proposal Team Checklist. Stay within the TARGET WORD BUDGET stated above."""
 
-    message = client.messages.create(
+    # Stream the response. At max_tokens=32000, a generation can exceed the
+    # SDK's 10-minute non-streaming timeout window, so streaming is required.
+    # Bonus: the draft prints live in the terminal as it's produced, giving
+    # visible progress during a 1-3 minute generation.
+    print()
+    print("=" * 60)
+    print("STREAMING DRAFT (live):")
+    print("=" * 60)
+
+    chunks = []
+    with client.messages.stream(
         model="claude-sonnet-4-6",
-        max_tokens=16000,
+        max_tokens=32000,
         system=system_prompt,
-        messages=[{"role": "user", "content": user_prompt}]
-    )
+        messages=[{"role": "user", "content": user_prompt}],
+    ) as stream:
+        for text_delta in stream.text_stream:
+            print(text_delta, end="", flush=True)
+            chunks.append(text_delta)
 
-    return message.content[0].text
+    print()  # final newline after streamed content
+    return "".join(chunks)
 
 
 # ============================================================
@@ -343,23 +375,33 @@ def main():
     print("Drafting full proposal response...\n")
     draft = write_full_proposal(extraction, decks, firm_config)
 
-    # Save as markdown alongside the extraction JSON
+    # Post-generation compliance check - banned words must not appear in
+    # federal proposal output. System-prompt enforcement is unreliable so we
+    # check deterministically and warn loudly.
+    findings = check_banned_words(draft, label="Proposal Draft")
+    warn_on_banned_words(findings, label="Proposal Draft")
+
     json_dir = os.path.dirname(os.path.abspath(json_path))
     stem = Path(json_path).stem.replace("_full_extraction", "")
-    output_path = os.path.join(json_dir, f"{stem}_proposal_draft.md")
+    output_path = os.path.join(json_dir, f"{stem}_proposal_draft.docx")
 
-    with open(output_path, "w", encoding="utf-8") as f:
-        f.write(f"# Proposal Draft\n")
-        f.write(f"**Opportunity:** {opportunity_title}  \n")
-        f.write(f"**Firm:** {firm_config.get('firm_name', 'Unknown')}  \n")
-        f.write(f"**Source:** {os.path.basename(json_path)}  \n\n")
-        f.write("---\n\n")
-        f.write(draft)
+    firm_name = firm_config.get("firm_name", "Unknown")
+    markdown_to_docx(
+        draft_text=draft,
+        title="Proposal Draft",
+        subtitle_lines=[
+            f"Opportunity: {opportunity_title}",
+            f"Firm: {firm_name}",
+            f"Source: {os.path.basename(json_path)}",
+        ],
+        output_path=output_path,
+    )
 
+    # The draft was already streamed live to the terminal above;
+    # no need to reprint it.
+    print()
     print("=" * 60)
-    print(draft)
-    print("=" * 60)
-    print(f"\nDraft saved to: {output_path}")
+    print(f"Draft saved to: {output_path}")
 
 
 if __name__ == "__main__":
