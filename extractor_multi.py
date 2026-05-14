@@ -29,6 +29,9 @@ import os
 import json
 import glob
 
+if sys.stdout.encoding and sys.stdout.encoding.lower() != "utf-8":
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+
 
 # ============================================================
 # STEP 1: FILE TYPE EXTRACTORS
@@ -125,6 +128,9 @@ OUTPUT_SUFFIXES = (
     "_extracted.txt",
     "_full_extraction.json",
     "_raw_extraction.txt",
+    "_compliance_matrix.docx",
+    "_proposal_draft.docx",
+    "_past_performance_draft.docx",
 )
 
 FILE_TYPE_LABELS = {
@@ -256,11 +262,30 @@ Return your response as a JSON object with the following structure:
         "key_personnel": "Any specific roles or qualifications required",
         "deliverables": "Key deliverables or CDRLs if specified"
     }},
-    "evaluation_criteria": {{
+    "section_l": {{
+        "submission_requirements": {{
+            "page_limit_total": "Total page limit across all volumes, or 'Not specified'",
+            "page_limits_by_volume": {{"Volume name": "page limit"}},
+            "font": "Required font and size, or 'Not specified'",
+            "line_spacing": "Required line spacing, or 'Not specified'",
+            "file_format": "Required file format(s), e.g. PDF, Word",
+            "copies": "Number of copies required, or 'Not specified'",
+            "submission_method": "e.g., SAM.gov, email, hard copy"
+        }},
+        "volume_structure": ["List of required proposal volumes or sections as specified in Section L"],
+        "signing_requirements": "Who must sign and any certification requirements",
+        "other_instructions": "Any other compliance requirements from Section L worth flagging"
+    }},
+    "section_m": {{
         "evaluation_method": "e.g., LPTA, Best Value Tradeoff, Lowest Price",
-        "factors": ["List of evaluation factors in order of importance if stated"],
-        "submission_requirements": "Page limits, format requirements, volumes required",
-        "notes": "Any additional evaluation details"
+        "factors": [
+            {{
+                "name": "Factor name",
+                "weight": "Stated weight or relative importance, e.g. 'Most Important', '30%', or 'Not specified'",
+                "subfactors": ["List of subfactors if stated, otherwise empty array"]
+            }}
+        ],
+        "notes": "Any additional evaluation details, adjectival ratings, or scoring methodology"
     }},
     "competitive_intelligence": {{
         "incumbent": "Current contract holder if mentioned",
@@ -349,6 +374,12 @@ def main():
 
         parsed = json.loads(cleaned)
 
+        # Save JSON immediately after parsing so it's persisted even if display fails
+        folder_name = os.path.basename(os.path.normpath(folder_path))
+        output_path = os.path.join(folder_path, f"{folder_name}_full_extraction.json")
+        with open(output_path, "w", encoding="utf-8") as f:
+            json.dump(parsed, f, indent=2)
+
         print("=" * 60)
         print("EXTRACTED CONTRACT DATA (Multi-Document)")
         print("=" * 60)
@@ -356,7 +387,8 @@ def main():
         overview = parsed.get("opportunity_overview", {})
         details = parsed.get("contract_details", {})
         requirements = parsed.get("requirements_summary", {})
-        eval_criteria = parsed.get("evaluation_criteria", {})
+        section_l = parsed.get("section_l", {})
+        section_m = parsed.get("section_m", {})
         intel = parsed.get("competitive_intelligence", {})
         actions = parsed.get("bd_action_items", {})
         outline = parsed.get("proposal_outline", {})
@@ -377,8 +409,15 @@ def main():
 
         print(f"\n  SCOPE: {requirements.get('scope_overview', 'N/A')}")
         print(f"  CLEARANCE: {requirements.get('clearance_requirements', 'N/A')}")
-        print(f"  EVAL METHOD: {eval_criteria.get('evaluation_method', 'N/A')}")
+        print(f"  EVAL METHOD: {section_m.get('evaluation_method', 'N/A')}")
         print(f"  INCUMBENT: {intel.get('incumbent', 'N/A')}")
+
+        sub_req = section_l.get("submission_requirements", {})
+        if sub_req:
+            print(f"\n  SECTION L — SUBMISSION REQUIREMENTS:")
+            print(f"    Page limit (total): {sub_req.get('page_limit_total', 'Not specified')}")
+            print(f"    Font:               {sub_req.get('font', 'Not specified')}")
+            print(f"    Submission method:  {sub_req.get('submission_method', 'Not specified')}")
 
         key_reqs = requirements.get("key_requirements", [])
         if key_reqs:
@@ -386,11 +425,16 @@ def main():
             for i, req in enumerate(key_reqs, 1):
                 print(f"    {i}. {req}")
 
-        factors = eval_criteria.get("factors", [])
+        factors = section_m.get("factors", [])
         if factors:
-            print(f"\n  EVALUATION FACTORS:")
+            print(f"\n  SECTION M — EVALUATION FACTORS:")
             for i, factor in enumerate(factors, 1):
-                print(f"    {i}. {factor}")
+                if isinstance(factor, dict):
+                    print(f"    {i}. {factor.get('name', 'N/A')} [{factor.get('weight', 'N/A')}]")
+                    for sub in factor.get("subfactors", []):
+                        print(f"         - {sub}")
+                else:
+                    print(f"    {i}. {factor}")
 
         risks = actions.get("risks_and_flags", [])
         if risks:
@@ -422,11 +466,6 @@ def main():
                     print(f"      Note: {guidance}")
 
         print("\n" + "=" * 60)
-
-        folder_name = os.path.basename(os.path.normpath(folder_path))
-        output_path = os.path.join(folder_path, f"{folder_name}_full_extraction.json")
-        with open(output_path, "w", encoding="utf-8") as f:
-            json.dump(parsed, f, indent=2)
         print(f"\nFull JSON saved to: {output_path}")
 
     except json.JSONDecodeError:
