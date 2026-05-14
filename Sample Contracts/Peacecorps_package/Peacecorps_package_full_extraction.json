@@ -2,239 +2,321 @@
   "opportunity_overview": {
     "title": "VRS AI Chatbot Solution to Enhance Agency Recruitment Efforts",
     "solicitation_number": "140D0426Q0324",
-    "notice_type": "Request for Quote (RFQ) \u2014 with Amendment 1",
-    "agency": "Peace Corps \u2014 Office of Volunteer Recruitment and Service (VRS)",
-    "office": "Interior Business Center (IBC), Acquisition Services Directorate (AQD), 381 Elden Street, Suite 2000A, Herndon VA 20170",
-    "posted_date": "PWS dated March 16, 2026; Amendment 1 effective April 3, 2026",
-    "response_deadline": "Not specified in the provided documents \u2014 contracting officer is Michael McGuire; submit via email per Section 4 of RFQ",
+    "notice_type": "Solicitation (Request for Quote - RFQ)",
+    "agency": "Peace Corps",
+    "office": "Interior Business Center, Acquisition Services Directorate (IBC/AQD), Office of Volunteer Recruitment and Service (VRS)",
+    "posted_date": "Not specified in provided documents",
+    "response_deadline": "Not specified in provided documents",
     "source_documents": [
-      "RFQ 140D0426Q0324 Amendment 1 \u2014 Contractor Questions and Government Responses (Q&A document, 33 pages)",
-      "RFQ Contract Amendment \u2014 Standard Form 30, Amendment/Modification No. 0001, effective 04/03/2026",
-      "Performance Work Statement (PWS) \u2014 Peace Corps VRS AI Chatbot Solution, dated March 16, 2026 (27 pages, Attachment 1 to RFQ)"
+      "RFQ 140D0426Q0324_Q&A.txt - Amendment 1 Contractor Questions and Government Responses (33 pages)",
+      "RFQ Contract Amendment.txt - Standard Form 30 Amendment/Modification (Amendment 1, effective 04/03/2026)",
+      "peacecorps_aichatbot.txt - Performance Work Statement (PWS), dated March 16, 2026 (27 pages)"
     ]
   },
   "contract_details": {
     "naics_code": "Not specified in provided documents",
     "psc_code": "Not specified in provided documents",
-    "contract_type": "Firm-Fixed-Price (FFP) Purchase Order; pricing structured to include: (1) implementation/RAG training labor, (2) Peace Corps administrator/user training and materials, (3) year-over-year recurring costs (usage, hosting, subscription, Tier 3 support); each of five performance periods priced separately; SaaS licensing costs treated as ODCs excluded from FAR 52.219-14 subcontracting limitation calculation",
-    "set_aside": "Total Small Business (only small businesses eligible; FAR 52.219-14 Limitations on Subcontracting applies; prime must perform >50% of labor; non-certified firms at time of quote submission not eligible)",
-    "estimated_value": "Not publicly disclosed; Government confirmed an IGCE exists for both the base year and full period of performance but will not release figures",
-    "period_of_performance": "Base Period: June 1, 2026 \u2013 May 31, 2027; Option Period 1: June 1, 2027 \u2013 May 31, 2028; Option Period 2: June 1, 2028 \u2013 May 31, 2029; Option Period 3: June 1, 2029 \u2013 May 31, 2030; Option Period 4: June 1, 2030 \u2013 May 31, 2031; total not to exceed five (5) years if all options exercised; continuation contingent on fund availability and acceptable contractor performance",
-    "place_of_performance": "Contractor site within the United States of America (all work off-site/remote); no offshore or nearshore resources permitted; Peace Corps website (peacecorps.gov) is the deployment target; no on-site contractor presence required"
+    "contract_type": "Firm-Fixed-Price (FFP), Purchase Order; single vendor award",
+    "set_aside": "Total Small Business (only small businesses will be considered; FAR 52.219-14 Limitations on Subcontracting applies; small business prime must perform >50% of labor)",
+    "estimated_value": "Not publicly disclosed; Government confirmed a budget has been allocated for both the base year and the full period of performance but will not disclose specifics",
+    "period_of_performance": "Base Period: June 01, 2026 to May 31, 2027; Option Period 1: June 01, 2027 to May 31, 2028; Option Period 2: June 01, 2028 to May 31, 2029; Option Period 3: June 01, 2029 to May 31, 2030; Option Period 4: June 01, 2030 to May 31, 2031; Total not to exceed five (5) years if all options exercised",
+    "place_of_performance": "Contractor site located within the United States of America; all work is expected to be performed off-site (remote); no offshore or nearshore resources permitted"
   },
   "requirements_summary": {
-    "scope_overview": "The Peace Corps seeks a small business contractor to implement, integrate, and maintain a FedRAMP High authorized, commercially available SaaS conversational AI chatbot on peacecorps.gov to enhance volunteer recruitment, automate public inquiry handling, support multilingual engagement, and seamlessly escalate interactions to live Peace Corps agents.",
+    "scope_overview": "The Peace Corps seeks a FedRAMP High authorized, commercially available SaaS conversational AI chatbot solution to be deployed on peacecorps.gov, enhancing public-facing recruitment, outreach, and engagement by answering inquiries, routing users, and supporting live agent escalation for the Office of Volunteer Recruitment and Service (VRS).",
     "key_requirements": [
-      "FedRAMP High authorized SaaS conversational AI solution \u2014 must be authorized or actively in-process for FedRAMP High designation at time of quote submission; FedRAMP Moderate-only solutions will NOT be considered; solution includes chatbot application and all platform infrastructure; hybrid/segmented architectures acceptable if all components meet FedRAMP High; offeror may serve as system integrator deploying a third-party FedRAMP High authorized platform",
-      "Retrieval-Augmented Generation (RAG): AI responses must be grounded in Peace Corps-curated dataset only (est. 1,000\u201310,000 pages at initial deployment); Peace Corps provides all source content as GFI; contractor provides RAG structure and framework; hierarchical data ranking required; after deployment, Peace Corps staff manage and update the RAG independently",
-      "Website integration: Chatbot must be seamlessly embedded on peacecorps.gov (currently Django 5/Wagtail 8 CMS); solution must be CMS-agnostic; Peace Corps will whitelist script-src in content security policy (CSP); no direct CRM integration required at initial deployment",
-      "Multilingual support: English and Spanish required at initial deployment; additional languages evaluated as Best Value differentiator; single English-language RAG dataset; contractor responsible for translation quality including 'Golden Glossaries' and safety/medical protocol accuracy",
-      "Live agent escalation and queue management: contractor provides complete queue management logic; Peace Corps has a 10-contractor internal team (Office of Recruitment) as Tier 1 escalation; live agents available 15 hours/day; no existing live-agent platform \u2014 contractor must provide the interface; robust queue management including real-time position tracking, estimated wait times, delay notifications, callback capabilities, load balancing among agents",
-      "Continuous learning with human-in-the-loop: real-time capture of user interactions for analysis, feedback loops, human-approved knowledge base updates; Peace Corps OCIO Product Managers and IT Specialists must be able to manage ongoing administration independently post-deployment",
+      "FedRAMP High Authorization required for the entire solution (chatbot application and platform infrastructure); solution must be FedRAMP High authorized or actively in-process for FedRAMP High designation at time of quote submission; FedRAMP Moderate will NOT be accepted",
+      "Commercially available SaaS conversational AI solution; hybrid architectures acceptable but all components must meet FedRAMP High designation; offeror may serve as system integrator deploying a FedRAMP-authorized third-party platform",
+      "Retrieval-Augmented Generation (RAG) architecture required; AI must rely solely on Peace Corps-curated dataset (estimated 1,000-10,000 pages at initial deployment); Peace Corps will provide all RAG source data as GFI; contractor provides RAG structure and framework",
+      "Integration with peacecorps.gov website (Django 5/Wagtail 8 CMS); solution must be solution-agnostic and work with current and future peacecorps.gov architecture; Peace Corps will whitelist script-src for chatbot widget via Content Security Policy (CSP)",
+      "Multilingual functionality required: English and Spanish at minimum at initial deployment; additional languages evaluated as best value; single English-language RAG dataset must support translation",
+      "Live agent escalation and queue management required; contractor provides all queue management logic and escalation routing; Peace Corps has existing team of 10 contractors for Tier 1 support, available 15 hours/day; no existing live agent platform exists",
+      "Continuous learning mechanisms required with human-in-the-loop updates; Peace Corps staff must be trained to manage ongoing administration without contractor dependence",
+      "Section 508 compliance required (VPAT acceptable as demonstration of compliance)",
+      "FIPS 140-2 compliant encryption of data in transit and at rest",
       "99.9% uptime SLA during business hours",
-      "Section 508 compliance (VPAT acceptable for demonstration); WCAG 2.1 standards implied",
-      "FIPS 140-2 compliant encryption in transit and at rest",
-      "HIPAA-sensitive interaction handling: chatbot must detect and redirect PHI/PII inputs to qualified Peace Corps staff; full BAA NOT required; HIPAA context primarily involves medical clearance applicants and unsolicited PHI from members of the public",
-      "No CCPA compliance required (removed from PWS per Q&A response #69)",
-      "AI Risk Management: contractor must describe their AI risk management process (no specific framework mandated, but NIST AI RMF is an implied reference)",
-      "Transparency and explainability: documented decision-making processes; source material citation for users; root cause analysis capability for incorrect responses",
-      "Data governance: all data owned by Government; CSV format required for data export; secure data segmentation, masking, redaction tools; user consent required; data minimization principles apply",
-      "Analytics/KPI dashboard: live dashboard monitoring user satisfaction, response accuracy, adoption rates, containment rate, escalation rate, top user intents; first delivery within 15 days of go-live",
-      "Emergency response protocols: detect self-harm or crisis language; route to appropriate resources",
-      "Fair and non-discriminatory operation: Title VI compliance; regular bias audits",
-      "Scalability to accommodate increasing user volumes over the five-year PoP",
-      "All work performed within the United States; no offshore resources",
-      "Subcontracting allowed; SaaS/commercial software license costs excluded from FAR 52.219-14 50% limitation calculation and classified as ODCs; compliance period measured by end of base term and each subsequent option period",
-      "Personnel security: all contractor and subcontractor personnel require favorable background investigation adjudication (Tier 1 minimum for network access; Tier 2 or higher for PII/CUI access); NDAs required for all contractor/subcontractor employees",
-      "Kaspersky Lab and FAR 52.204-25 Section 889 telecommunications ban compliance required",
-      "Exit strategy: complete machine-readable data export in non-proprietary format (JSON or CSV) upon contract termination"
+      "HIPAA-compliant handling and redirection of PHI/PII interactions; BAA NOT required",
+      "Analytics and reporting: KPI dashboard, usage reports, user satisfaction, response accuracy, adoption rates, containment rate, escalation rate",
+      "Data export at contract completion in CSV format; all collected data is Government property",
+      "All contractor personnel require background investigations (minimum Tier 1 for network access; Tier 2 for PII/CUI access); all employees must sign NDAs",
+      "Exit strategy and data portability: machine-readable export in non-proprietary format (JSON, CSV) upon contract termination",
+      "Contractor responsible for Tier 3 post-deployment support; Peace Corps provides all other support tiers",
+      "Offeror must propose complete solution including hosting infrastructure architecture",
+      "CRM integration NOT required at initial implementation; may be required depending on proposed solution",
+      "Section 508 compliance required; VPAT acceptable",
+      "No use of Kaspersky Lab or banned telecom/surveillance equipment per FAR 52.204-25 and PL 115-91",
+      "CCPA compliance requirement has been REMOVED from PWS per Q&A response to Question 69",
+      "AI Risk Management: contractor must describe their process; no specific framework mandated but NIST AI RMF is referenced",
+      "Contractor must develop and propose implementation timeline; go-live date determined post-award based on final project plan; ATO must be issued before solution goes into production"
     ],
-    "clearance_requirements": "No national security clearance specified; however, all contractor and subcontractor personnel must have favorable adjudication of background investigations \u2014 Tier 1 or higher before Peace Corps network/IT system access; Tier 2 or higher before access to PII/CUI; Tier 2 or higher before privileged access to Peace Corps network or IT systems; Peace Corps sponsors investigations when deemed necessary",
-    "key_personnel": "No specific named labor categories or FTE counts mandated by the Government; offerors must propose their own staffing approach and level of effort; at minimum, the solution must be administrable post-deployment by Peace Corps OCIO Product Managers and IT Specialists without contractor dependency; Government confirmed key personnel past performance (not just corporate) may be considered for Factor B evaluation for emerging small businesses",
+    "clearance_requirements": "No security clearance specified; however, all contractor/subcontractor personnel must have favorable background investigation adjudication: Tier 1 or higher before accessing Peace Corps network/IT systems; Tier 2 or higher before accessing PII/CUI; Tier 2 or higher for privileged access",
+    "key_personnel": "Not specified by name or title in provided documents; Q&A confirms vendors propose their own staffing approach and level of effort; at minimum, Peace Corps OCIO Product Managers and IT Specialists must be able to manage solution post-deployment; key personnel past performance may be submitted for emerging small businesses",
     "deliverables": [
-      "Post-award kickoff meeting (virtual, within 10 business days of start of performance)",
-      "Draft QASP with quote submission (Volume IV); final QASP within 30 days after start of performance",
-      "Project Plan \u2014 initial within 15 days after start of performance; maintained throughout PoP",
-      "Data Protection Plan \u2014 within 15 days of start of PoP; updated as necessary",
-      "Requirements Specification Document \u2014 within 30 days after kickoff meeting (requires agency approval before design phase)",
-      "Design and Architecture Documentation \u2014 within 45 days following approval of Requirements Specification Document",
-      "Integration Plan and Report \u2014 report within 15 days of successful integration",
-      "Implementation Plan \u2014 submitted 45 days before scheduled implementation date",
-      "Test Plan \u2014 submitted 30 days prior to scheduled start of testing",
-      "Usability Testing Report \u2014 within 15 days after final prototype delivery",
-      "User Acceptance Testing (UAT) \u2014 completed within 30 days following delivery of final design document; results within 10 days after UAT completion",
-      "Training Materials and Knowledge Transfer (user manuals, guides, video tutorials) \u2014 delivered 10 days before go-live; training session for agency staff",
-      "Final Chatbot Solution \u2014 deployed within 60 days of successful completion of documentation, testing, cybersecurity assessment phases, and issuance of Peace Corps ATO",
-      "KPI Dashboard \u2014 first delivery within 15 days of go-live; regular updates per agency specification",
-      "Monthly Status Reports \u2014 by 10th of each month with invoice, until go-live",
-      "Meeting Minutes \u2014 within 5 business days after each meeting",
-      "Final Status Report \u2014 within 30 calendar days from go-live",
-      "Subcontracting Report (Attachment 2) \u2014 submitted to Contracting Officer 60 days prior to end of base period and all option periods",
-      "Monthly vulnerability scan reports (OS, database, web application) and POA&M updates",
-      "Monthly personnel separated staff report (beginning 60 days after execution of each option period)",
-      "Transparency and accountability documentation \u2014 maintained throughout PoP",
-      "Privacy Threshold Assessment (PTA) \u2014 contractor assists in preparation",
-      "Complete machine-readable data export in JSON/CSV format upon contract termination"
+      "Draft QASP (submitted with quote; serves as starting point for post-award QASP)",
+      "Final QASP (within 30 days of start of performance)",
+      "Post-Award Kickoff Meeting (within 10 business days of start of performance)",
+      "Project Plan (within 15 days after start of performance; maintained throughout)",
+      "Data Protection Plan (within 15 days of start of period of performance)",
+      "Requirements Specification Document (within 30 days after kickoff meeting; must be approved before design phase begins)",
+      "Design and Architecture Documentation (within 45 days following approval of Requirements Specification Document)",
+      "Integration Plan and Report (Integration Plan prior to integration; Report within 15 days of successful integration)",
+      "Implementation Plan (45 days before scheduled implementation date)",
+      "Test Plan (30 days prior to scheduled start of testing)",
+      "Usability Testing Report (within 15 days after final prototype delivery)",
+      "User Acceptance Testing (UAT) and Test Results Report (UAT completed within 30 days of final design document delivery; results within 10 days after UAT completion)",
+      "Training Materials and Knowledge Transfer (10 days before go-live; includes user manuals, training guides, video tutorials)",
+      "Final Chatbot Solution (within 60 days of successful completion of final design documentation, testing, cybersecurity assessment, and issuance of Peace Corps ATO)",
+      "KPI Dashboard (first report/dashboard within 15 days of go-live; regular updates per agency specification)",
+      "Monthly Status Reports (by 10th of each month with invoice, until go-live)",
+      "Meeting Minutes (within 5 business days of conclusion of meetings)",
+      "Final Report (within 30 calendar days of go-live/release into production)",
+      "Limitations on Subcontracting Report - Attachment 2 (submitted to Contracting Officer 60 days prior to end of base period and all option periods)",
+      "Monthly vulnerability scans and POA&M (per FedRAMP continuous monitoring requirements)",
+      "Monthly report on separated staff (beginning 60 days after option period execution)",
+      "Privacy Threshold Assessment (PTA)",
+      "Transparency and Accountability documentation",
+      "Employee NDAs for all contractor/subcontractor personnel"
     ]
   },
-  "evaluation_criteria": {
-    "evaluation_method": "Best Value Tradeoff (not LPTA); Government confirmed in Q&A #39 and #75; price reasonableness determination will be conducted (price realism analysis NOT confirmed per Q&A #110)",
-    "factors": [
-      "Factor A \u2014 Technical Approach (referenced in RFQ Section 5, pages 20-21; Volume I, 20-page limit excluding cover page and table of contents)",
-      "Factor B \u2014 Past Performance (Volume II, no page limit; three references required, within last 3 years, similar in complexity and magnitude; commercial, SLED, federal, and subcontractor references acceptable; key personnel past performance considered for emerging small businesses; prime contractor past performance preferred)",
-      "Factor C \u2014 Assumptions, Conditions, or Exceptions (Volume III, no page limit)",
-      "Factor D \u2014 Draft Quality Assurance Surveillance Plan (Volume IV, no page limit; contractor format acceptable; serves as starting point for post-award QASP)",
-      "Factor E \u2014 Price (Volume V, no page limit; FFP by period; structured as implementation labor, training, and recurring year-over-year costs; priced separately for each of five periods; timeline to go-live evaluated as Best Value differentiator; additional language support beyond English/Spanish evaluated as Best Value differentiator; presentable reporting formats such as Word/PDF considered in Best Value determination)"
+  "section_l": {
+    "submission_requirements": {
+      "page_limit_total": "20 pages for Volume I - Technical only; no page limits stated for Volumes II-V",
+      "page_limits_by_volume": {
+        "Volume I - Technical": "20 pages (cover page and table of contents do NOT count toward the 20-page limit)",
+        "Volume II - Past Performance": "No page limit",
+        "Volume III - Assumptions, Conditions, or Exceptions": "No page limit",
+        "Volume IV - Draft Quality Assurance Surveillance Plan (QASP)": "No page limit",
+        "Volume V - Price": "No page limit"
+      },
+      "font": "Not specified",
+      "line_spacing": "Not specified",
+      "file_format": "PDF and Word formats are both acceptable, provided all instructions and formatting requirements are followed",
+      "copies": "Not specified (electronic submission via email)",
+      "submission_method": "Electronic submission via email; Government encourages all five volumes in a single email but separate emails permitted if file size prevents consolidation; offerors responsible for ensuring complete quote is received"
+    },
+    "volume_structure": [
+      "Volume I - Technical (20-page limit; cover page and table of contents excluded from page count; cover letter may be included for each volume)",
+      "Volume II - Past Performance (no page limit; three references of similar efforts within last three years required; key personnel past performance acceptable for emerging small businesses; subcontractor past performance acceptable but prime performance preferred; commercial references acceptable if comparable complexity)",
+      "Volume III - Assumptions, Conditions, or Exceptions (no page limit; submitted under separate cover)",
+      "Volume IV - Draft Quality Assurance Surveillance Plan (QASP) (no page limit; follows FAR Overhaul 46.4; contractor's format acceptable; draft submitted with quote serves as starting point for post-award final QASP)",
+      "Volume V - Price (no page limit; FFP required for base period and each option period separately; pricing structure should include: (1) implementation including RAG training, (2) training and training materials for administrators and users, (3) year-over-year recurring costs including usage rate, hosting, subscription, Tier 3 support; SaaS licensing costs included under ODCs excluded from FAR 52.219-14 subcontracting calculation; existing contract labor categories and rates may be used as basis for discounts)"
     ],
-    "submission_requirements": "Five separate volumes submitted electronically via email; all five volumes encouraged in a single email (separate emails acceptable if file size prevents consolidation); PDF and Word formats acceptable; Volume I \u2014 Technical (20-page limit, cover page and table of contents excluded from page count); Volume II \u2014 Past Performance (no page limit); Volume III \u2014 Assumptions, Conditions, or Exceptions (no page limit); Volume IV \u2014 Draft QASP (no page limit); Volume V \u2014 Price (no page limit; FFP for base period and each option period separately; structure to include: implementation/RAG training, Peace Corps staff training/materials, year-over-year recurring costs); cover letter may be included for each volume; SF 1449 is for internal reference only and need NOT be submitted",
-    "notes": "Offerors are responsible for ensuring complete quote is received and properly identified; incomplete quotes may not be considered; contractors may use existing GSA/contract labor categories and rates as basis for pricing with discounts encouraged; SaaS licensing costs classified as ODCs and excluded from FAR 52.219-14 subcontracting calculation; pricing must account for variable usage-based AI/cloud costs built into FFP; Government will accept pricing structured as: (1) implementation, (2) training/materials, (3) year-over-year recurring costs; go-live timeline included in technical response and evaluated as Best Value factor"
+    "signing_requirements": "Standard Form 1449 is for internal documentation and reference only; does NOT need to be included with quote submission; amendment receipt acknowledgment required",
+    "other_instructions": [
+      "Only certified small businesses eligible at time of quote submission; firms not certified at submission will not be considered",
+      "FedRAMP High solution must be authorized or actively in-process at time of quote submission",
+      "Subcontracting allowed but must follow FAR 52.219-14; prime must perform >50% of labor; SaaS/commercial software license costs excluded from 52.219-14 calculation and classified as ODCs",
+      "FAR 52.219-14 compliance period: by end of base term and then by end of each subsequent option period",
+      "Proposed implementation timeline should be included in response and will be evaluated",
+      "Attachment 2 (Limitations on Subcontracting Report) submitted to CO 60 days prior to end of base period and all option periods",
+      "Reporting formats: CSV required for data export; Word or PDF preferred for reports (taken into consideration in Best Value determination)",
+      "All work must be performed within the United States; no offshore/nearshore resources permitted",
+      "Single vendor award"
+    ]
+  },
+  "section_m": {
+    "evaluation_method": "Best Value Tradeoff",
+    "factors": [
+      {
+        "name": "Factor A - Technical",
+        "weight": "Not specified (relative weight not stated in provided documents)",
+        "subfactors": [
+          "Proposed technical approach and solution architecture",
+          "FedRAMP High authorization status or in-process documentation",
+          "Proposed implementation timeline (go-live timeline evaluated; sooner is better, not at cost of quality)",
+          "Multilingual capability beyond English and Spanish evaluated favorably",
+          "Solution features beyond minimum requirements (e.g., additional languages, reporting format quality)",
+          "Volume I Technical - 20 page limit"
+        ]
+      },
+      {
+        "name": "Factor B - Past Performance",
+        "weight": "Not specified (relative weight not stated in provided documents)",
+        "subfactors": [
+          "Three references of similar efforts within last three years",
+          "Relevant defined as similar in complexity and magnitude to PWS requirements",
+          "Key personnel past performance considered for emerging small businesses",
+          "Subcontractor past performance acceptable; prime past performance preferred",
+          "Commercial references acceptable if comparable AI complexity, scale, and compliance"
+        ]
+      },
+      {
+        "name": "Price",
+        "weight": "Not specified (relative weight not stated in provided documents)",
+        "subfactors": [
+          "FFP price for base period",
+          "FFP price for each option period separately (5 periods total)",
+          "Price reasonableness determination (Government will perform price reasonableness; price realism NOT confirmed)",
+          "Reflection of clear understanding of requirements",
+          "Consistency with proposed technical solution",
+          "Potential risk identification"
+        ]
+      }
+    ],
+    "notes": "Government confirmed Best Value Tradeoff approach (Q&A #39); specific factor weights and adjectival rating scales not provided in available documents; additional languages beyond English and Spanish, reporting format quality (Word/PDF preferred), and implementation timeline will be considered in Best Value determination; Government will perform price reasonableness only (not price realism per Q&A #110); CRM integration approach evaluated case-by-case; Volume III (Assumptions, Conditions, or Exceptions) submitted under separate cover"
   },
   "competitive_intelligence": {
-    "incumbent": "None \u2014 this is a new requirement with no current spend and no incumbent contractor (confirmed in Q&A #8, #106, #138)",
-    "predecessor_contract": "Not applicable \u2014 new requirement",
-    "estimated_competition": "Set-aside for small businesses only; FedRAMP High authorization requirement (or active in-process designation) is a significant barrier to entry, substantially limiting the pool of eligible offerors; no platform preference stated; hybrid/segmented architectures and third-party platform integrations acceptable, broadening the competitive field somewhat; subcontracting and teaming allowed with prime performing >50% of labor; commercial AI firms with federal validation (DoD SBIR Phase II) and adjacent commercial deployments are competitive; single award",
+    "incumbent": "None - this is a new requirement with no incumbent contractor and no current spend",
+    "predecessor_contract": "Not Applicable - new initiative",
+    "estimated_competition": "Open to all certified small businesses only; no SDVOSB, 8(a), HUBZone, or WOSB set-aside specified beyond general small business; single vendor award; FedRAMP High requirement (or in-process) at time of submission significantly narrows eligible pool of SaaS chatbot platforms; requirement for solution-level FedRAMP High (not just infrastructure) further restricts competition; subcontracting permitted allowing system integrators to team with FedRAMP-authorized platform providers",
     "notable_terms": [
-      "FedRAMP High is an absolute requirement \u2014 FedRAMP Moderate solutions will NOT be considered; solution must be in-process at minimum at time of quote submission; FedRAMP 20x is NOT acceptable (not scheduled for High impact pilot until FY27)",
-      "CCPA compliance requirement has been REMOVED from PWS per Q&A #69 \u2014 NOTE: PWS Section 3.1.13 as written still references CCPA; government stated it will be corrected but the provided PWS document has NOT been updated",
-      "CROSS-DOCUMENT DISCREPANCY: PWS Section 6.1 references FedRAMP Moderate impact systems; all other references (PWS 3.1.1, RFQ Section 1.3, Q&A responses) require FedRAMP High; government confirmed PWS will be corrected but the provided PWS text has not been fully updated",
-      "No BAA required despite HIPAA-sensitive interaction handling being a firm requirement",
-      "All work must be performed within the United States \u2014 no offshore or nearshore resources permitted",
-      "ATO process: Peace Corps will issue its own Agency ATO leveraging contractor's FedRAMP package; contractor may begin implementation planning and RAG development during ATO review but cannot go to production until ATO is complete",
-      "ODCs initially stated as not anticipated in Section 1.10 but later revised to remove this limitation; SaaS licensing costs are ODCs excluded from FAR 52.219-14 calculation \u2014 NOTE: if Azure is proposed, Government confirmed Azure costs remain with the Agency (Q&A #118)",
-      "Government owns all data; CSV format required for data export; all interaction data may be used for system improvement",
-      "FAR 52.219-14 Limitations on Subcontracting compliance measured by end of base term and each subsequent option period (not per order)",
-      "Response time SLA defined qualitatively ('fast enough to ensure smooth and natural conversation flow') \u2014 no specific millisecond/second threshold stated",
-      "Chatbot scope covers entire volunteer lifecycle from lead to returned volunteer \u2014 not limited to front-end lead generation",
-      "Peace Corps' existing tech stack: AWS and Azure for cloud, Dynamics CRM (Click/Dimensions, upgrading from 8.2 to 9.1), SQL and Oracle databases, Power Platform; Django 5/Wagtail 8 CMS; no existing live-agent or case management system",
-      "Over 90% of current public inquiries are predictable and from a limited set of subjects \u2014 strong RAG-anchored solution should perform well",
-      "If Azure is proposed by the vendor, Peace Corps confirmed Azure use costs remain with the Agency",
-      "No specific AI risk management framework mandated (NIST AI RMF referenced implicitly)"
+      "FedRAMP High required for the ENTIRE SOLUTION including chatbot application and platform infrastructure - not merely the hosting environment; this is repeatedly clarified across 20+ Q&A responses and represents the most significant technical gate",
+      "DISCREPANCY FLAGGED: PWS Section 3.1.1 requires FedRAMP High but PWS Section 6.1 originally referenced FedRAMP Moderate baseline controls - Government confirmed in Q&A (#25, #64, #87, #90, #147) that FedRAMP HIGH is required and PWS will be corrected; offerors should be aware the provided PWS text may not reflect the correction yet",
+      "DISCREPANCY FLAGGED: PWS Section 3.1.13 references CCPA compliance requirement - Government confirmed in Q&A (#69) that CCPA has been REMOVED from the PWS; the provided PWS text still contains the CCPA reference",
+      "DISCREPANCY FLAGGED: PWS Section 6.1 text in provided document reads 'Moderate High' in one location - Government confirmed throughout Q&A that FedRAMP High is required; PWS text appears to have been partially corrected but inconsistency remains in the provided document",
+      "Section 1.10 reference to ODCs not being anticipated was revised per Q&A #118; SaaS licensing costs ARE included as ODCs and excluded from FAR 52.219-14 subcontracting calculation",
+      "HIPAA sensitivity: High probability of users entering unsolicited PHI/PII; chatbot must detect and redirect but BAA is NOT required",
+      "CCPA removed from requirements per Amendment 1",
+      "No specific budget ceiling or IGCE provided to offerors",
+      "FFP pricing for usage-based SaaS creates significant risk for offerors as interaction volume is undefined and expected to 'dramatically increase'; Government will not establish interaction thresholds or NTE ceiling",
+      "Peace Corps uses highly customized Dynamics CRM 8.2 (upgrading to 9.1) with Click/Dimensions; CRM integration NOT required at initial implementation",
+      "Peace Corps website built on Django 5/Wagtail 8 CMS; CSP whitelist required for chatbot widget",
+      "Peace Corps uses AWS and Azure for cloud workloads; Azure costs remain with Agency if proposed solution uses Azure per Q&A #118",
+      "All data owned by Government; CSV format required for data export at contract end",
+      "Contractor may begin implementation planning and RAG development during ATO review; solution may NOT go into production until ATO is complete",
+      "Live agents (10 contractors) available 15 hours/day for Tier 1 escalation; contractor provides Tier 3 support only post-deployment",
+      "Work must be 100% CONUS; no offshore/nearshore resources permitted",
+      "Each contractor/subcontractor employee must sign NDA",
+      "Vulnerability remediation timelines: critical within 7 days, high within 14 days, moderate within 45 days"
     ]
   },
   "bd_action_items": {
-    "pursuit_recommendation": "Best positioned: a small business (or small business prime with large business subcontractors for the FedRAMP High platform) with demonstrated experience deploying FedRAMP High or in-process conversational AI/chatbot solutions in federal or regulated environments, preferably with RAG-based architectures; firms with existing relationships with FedRAMP High authorized SaaS AI platforms (e.g., as a system integrator) and prior federal agency AI deployment experience will have a strong advantage; key differentiators will be go-live timeline, multilingual capability depth beyond English/Spanish, and analytics/KPI maturity; emerging small businesses with strong key personnel records can compete on Past Performance",
+    "pursuit_recommendation": "Best positioned firms are certified small businesses that either (a) hold or are actively pursuing FedRAMP High authorization for a conversational AI/chatbot SaaS platform, or (b) are experienced system integrators capable of deploying and configuring a FedRAMP High-authorized third-party chatbot platform (e.g., via teaming) while performing >50% of labor as prime; strong candidates will have demonstrated federal AI/chatbot implementation experience, RAG architecture expertise, and ability to navigate FedRAMP A&A processes; pure resellers without implementation capability are unlikely to win given the scope of professional services required",
     "key_dates": [
-      "March 16, 2026 \u2014 PWS date of issuance",
-      "April 3, 2026 \u2014 Amendment 1 effective date (Q&A responses and solicitation revisions issued)",
-      "Response deadline \u2014 NOT SPECIFIED in provided documents; verify on SAM.gov",
-      "Contract start (if awarded) \u2014 June 1, 2026 (estimated)",
-      "Within 10 business days of contract start \u2014 Post-award kickoff meeting",
-      "15 days after start of performance \u2014 Initial Project Plan due",
-      "15 days after start of performance \u2014 Draft QASP (pre-award version submitted with quote; post-award draft due 15 days after start)",
-      "15 days after start of performance \u2014 Data Protection Plan due",
-      "30 days after start of performance \u2014 Final QASP due",
-      "30 days after kickoff meeting \u2014 Requirements Specification Document due",
-      "45 days after Requirements Specification Document approval \u2014 Design and Architecture Documentation due",
-      "45 days before scheduled implementation \u2014 Implementation Plan due",
-      "30 days before scheduled testing \u2014 Test Plan due",
-      "30 days after final design document delivery \u2014 UAT completion deadline",
-      "15 days after final prototype \u2014 Usability Testing Report due",
-      "10 days after UAT completion \u2014 Test Results report due",
-      "10 days before go-live \u2014 Training Materials and Knowledge Transfer due",
-      "Within 60 days of completion of documentation, testing, cybersecurity assessment, and Peace Corps ATO issuance \u2014 Final Chatbot Solution deployed",
-      "Within 15 days of go-live \u2014 First KPI Dashboard/Report due",
-      "Within 30 calendar days of go-live \u2014 Final Status Report due",
-      "60 days prior to end of base period and all option periods \u2014 Subcontracting Report (Attachment 2) due",
-      "Monthly by 10th of each month \u2014 Status Reports with invoice (until go-live)",
-      "Monthly \u2014 Vulnerability scan reports and POA&M updates",
-      "60 days after execution of each option period \u2014 Monthly personnel separated staff report begins",
-      "May 31, 2027 \u2014 End of Base Period; FAR 52.219-14 subcontracting compliance measured",
-      "May 31, 2028 / 2029 / 2030 / 2031 \u2014 End of Option Periods 1\u20134; subcontracting compliance measured at each"
+      "Amendment 1 Effective Date: April 3, 2026",
+      "PWS Date: March 16, 2026",
+      "Base Period Start (Estimated): June 1, 2026",
+      "Base Period End: May 31, 2027",
+      "Option Period 1: June 1, 2027 - May 31, 2028",
+      "Option Period 2: June 1, 2028 - May 31, 2029",
+      "Option Period 3: June 1, 2029 - May 31, 2030",
+      "Option Period 4: June 1, 2030 - May 31, 2031",
+      "Quote submission deadline: NOT SPECIFIED in provided documents",
+      "Post-award kickoff meeting: within 10 business days of start of performance",
+      "Draft QASP and Project Plan: within 15 days after start of performance",
+      "Data Protection Plan: within 15 days of start of period of performance",
+      "Requirements Specification Document: within 30 days after kickoff meeting",
+      "Design and Architecture Documentation: within 45 days after approval of Requirements Specification Document",
+      "Implementation Plan: 45 days before scheduled implementation date",
+      "Test Plan: 30 days prior to scheduled start of testing",
+      "UAT: within 30 days of final design document delivery",
+      "UAT Test Results: within 10 days after UAT completion",
+      "Usability Testing Report: within 15 days after final prototype delivery",
+      "Training Materials: 10 days before go-live",
+      "Final Chatbot Solution: within 60 days of completion of final documentation, testing, cybersecurity assessment, and ATO issuance",
+      "KPI Dashboard (first): within 15 days of go-live",
+      "Final Report: within 30 calendar days of go-live",
+      "Limitations on Subcontracting Report (Attachment 2): 60 days prior to end of base period and each option period",
+      "Monthly Status Reports: by 10th of each month with invoice (until go-live)",
+      "Final QASP: within 30 days of start of performance"
     ],
     "risks_and_flags": [
-      "RESPONSE DEADLINE NOT PROVIDED: The submission deadline is not specified in any of the three provided documents \u2014 this is a critical gap; offerors must check SAM.gov for the current response deadline",
-      "FedRAMP HIGH BARRIER: Only solutions with active FedRAMP High authorization OR actively in-process at time of quote submission are eligible; this is a go/no-go qualifier that will significantly narrow the competitive field; firms must validate their platform partner's FedRAMP status before investing in a response",
-      "UNDEFINED VOLUME RISK IN FFP PRICING: Government acknowledges engagement will 'dramatically increase' but provides no ceiling on interactions; all usage-based AI compute costs must be absorbed in FFP pricing; this represents potentially unlimited financial exposure for the contractor \u2014 firms should carefully model worst-case usage scenarios and consider risk mitigation language",
-      "ATO TIMELINE UNCERTAINTY: Peace Corps ATO timeline is TBD and will be based on final project plan; no interim operating capability is permitted until ATO is issued; this creates schedule risk within the base period (June 1, 2026 \u2013 May 31, 2027) and could push go-live into Option Period 1",
-      "AZURE COST TREATMENT: If a vendor proposes Azure, the Government confirmed Azure costs remain with the Agency \u2014 this creates a pricing asymmetry between Azure-based and non-Azure-based solutions that offerors must account for in their pricing structure",
-      "CCPA REMOVAL NOT REFLECTED IN PWS: Q&A #69 states CCPA was removed from the PWS, but the provided PWS document (Section 3.1.13) still includes CCPA as a requirement \u2014 offerors should acknowledge the amendment removes this requirement but should not rely solely on the Q&A; request final amended PWS from the contracting officer",
-      "FEDRAMP MODERATE LANGUAGE IN PWS NOT FULLY CORRECTED: PWS Section 6.1 references 'Moderate' impact systems; Q&A responses #25, #64, #87, #90 confirm this is an error and the correct requirement is FedRAMP High; government stated the PWS 'will be corrected' but the provided PWS text has not been updated \u2014 this is an unresolved document inconsistency",
-      "SUBCONTRACTING 50% CALCULATION AMBIGUITY: SaaS licensing/ODC costs are excluded from the FAR 52.219-14 calculation, which could make it easier to comply; however, if the majority of contract value is SaaS licensing, the remaining labor value split must be tracked carefully",
-      "NO LIVE-AGENT SYSTEM EXISTS: Contractor must build queue management and escalation logic from scratch with no existing platform integration point \u2014 this is a significant scope item often underestimated in pricing",
-      "PRICING MODEL MISMATCH: RFQ requires FFP but the underlying cost drivers are usage-based SaaS \u2014 firms must carefully construct FFP pricing that accounts for variable AI compute costs, potentially over multiple years of traffic growth",
-      "HIPAA HANDLING WITHOUT BAA: Government confirmed no BAA is required, yet PHI/PII from applicants may be entered into the chatbot \u2014 offerors should address this in their legal/compliance approach as it may create liability questions",
-      "SINGLE AWARD: Only one vendor will be selected \u2014 a strong, differentiated technical approach is essential"
+      "MAJOR RISK - FedRAMP High pricing uncertainty: FFP contract structure combined with usage-based SaaS pricing and undefined/dramatically increasing interaction volumes creates substantial financial risk for the contractor; Government will not establish interaction thresholds or NTE ceiling; offerors must build all variable cost scenarios into FFP",
+      "MAJOR RISK - ATO timeline dependency: FedRAMP High A&A process can take 3-6+ months; solution cannot go into production until ATO is complete; this could compress the base year significantly; go-live timeline is a critical path dependency that is TBD",
+      "FedRAMP High requirement at time of quote submission for in-process solutions; solution must be in-process to be evaluated; this gates a large portion of the market",
+      "DOCUMENT INCONSISTENCY - PWS Section 6.1 references 'Moderate High impact systems' and 'Moderate' in places; Government confirmed FedRAMP HIGH is required and PWS will be corrected; the provided PWS document has NOT been fully corrected yet - offerors should rely on Q&A responses, not PWS Section 6.1 language",
+      "DOCUMENT INCONSISTENCY - PWS Section 3.1.13 still contains CCPA compliance requirement; Q&A #69 states CCPA has been removed; the provided PWS text has NOT been updated to reflect this removal",
+      "No page limit specified for total proposal (only Volume I is capped at 20 pages); absence of clear RFQ document in provided package means response deadline is unknown - CRITICAL DATE MISSING from provided documents",
+      "No specific NAICS code provided in available documents; relevant for small business size standard determination",
+      "RAG dataset size (1,000-10,000 pages) is highly variable and affects implementation pricing and effort significantly",
+      "Continuous learning requirement must not require autonomous model retraining; government expects vendor to define methodology; scope ambiguity could affect solution design",
+      "Live agent escalation system does not exist; contractor must build complete queue management and routing logic from scratch; integration with eventual CRM may be required in future option periods",
+      "Multilingual translation accuracy validation responsibility falls on contractor; 'Golden Glossaries' and translated safety protocols must be addressed by respondents",
+      "HIPAA handling required despite chatbot being primarily public-facing; design must include detection and redirection logic",
+      "Background investigation requirements apply to all personnel including subcontractors; this could affect staffing timelines and costs",
+      "SaaS license costs classified as ODCs per Q&A; pricing structure must clearly separate implementation labor from SaaS/licensing fees",
+      "CRM integration may be required depending on proposed solution and will be evaluated case-by-case; this creates pricing uncertainty",
+      "Government confirmed single-vendor award only"
     ],
     "cross_document_discrepancies": [
-      "FEDRAMP AUTHORIZATION LEVEL CONFLICT: PWS Section 3.1.1 and RFQ Section 1.3 require 'FedRAMP High Authorization'; PWS Section 6.1 references 'FedRAMP Continuous Monitoring Requirements for Moderate impact systems (as defined in FIPS PUB 199).' The Q&A document (responses #25, #64, #87, #90, #147) consistently confirms FedRAMP HIGH is required and states the PWS will be corrected \u2014 however, the provided PWS text has NOT been updated to remove the 'Moderate' language in Section 6.1. This is the most significant cross-document discrepancy in the package.",
-      "CCPA REQUIREMENT CONFLICT: PWS Section 3.1.13 as provided includes California Consumer Privacy Act (CCPA) compliance as a requirement. Q&A response #69 states 'This has been removed from the PWS.' The provided PWS document still contains the CCPA requirement. Offerors should not propose CCPA compliance as a PWS requirement but should note the inconsistency.",
-      "ODC TREATMENT CONFLICT: RFQ Section 1.10 reportedly states 'Other Direct Costs (ODC) are not anticipated in performance of this order.' However, Q&A #118 states 'This section has been revised to remove ODCs' and Q&A responses #102, #122, #149 all direct SaaS licensing costs to be included as ODCs. The solicitation as provided appears to contain a now-superseded ODC restriction that was revised by Amendment 1.",
-      "DELIVERABLE DESCRIPTION MINOR VARIANCE: PWS Section 3.4.1 states the final solution 'must be delivered within 60 days of the successful completion of the final document documentation, testing and cybersecurity risk management and assessment phases'; PWS Section 4.2.14 adds 'and issuance of an Authority to Operate (ATO) by the Peace Corps' as an additional condition. Section 4.2.14 is the more complete and operationally accurate statement.",
-      "PERFORMANCE STANDARD TABLE (PWS Section 5.0): References 'The Contractor provided Hardware and Software Configuration' as the performance standard \u2014 this language appears to be boilerplate/placeholder text that does not accurately describe a SaaS/AI chatbot solution and may be a carryover from a prior template."
+      "CRITICAL DISCREPANCY: PWS Section 3.1.1 requires 'FedRAMP High Authorization' while PWS Section 6.1 references 'FedRAMP Cloud Computing Security Requirements Baseline and FedRAMP Continuous Monitoring Requirements for Moderate impact systems (as defined in FIPS PUB 199).' Government confirmed in Q&A responses (#25, #64, #87, #90, #125, #147) that FedRAMP HIGH is required and the PWS will be corrected, but the provided PWS document still contains the conflicting Moderate reference in Section 6.1. Offerors must rely on Q&A clarifications, not the PWS as written.",
+      "DISCREPANCY: PWS Section 6.1 text in the provided document uses the phrase 'Moderate High' in one passage (appearing to reflect a partial, incomplete edit), while all Q&A responses confirm the requirement is FedRAMP High only. The PWS document provided does not fully reflect the corrections promised in Amendment 1.",
+      "DISCREPANCY: PWS Section 3.1.13 still contains a CCPA compliance requirement ('California Consumer Privacy Act (CCPA)'). Q&A response to Question 69 explicitly states 'This has been removed from the PWS.' The provided PWS document has NOT been updated to reflect this removal. CCPA compliance is NOT required.",
+      "DISCREPANCY: PWS Section 6.1.8 references PII system authorization at 'FIPS PUB 199 Moderate High level' - this language is inconsistent with the confirmed FedRAMP High requirement and appears to be another artifact of the incomplete PWS correction.",
+      "DISCREPANCY: Section 1.10 of the RFQ reportedly stated ODCs are not anticipated; Q&A #118 confirms this section was revised to remove the ODC restriction. SaaS licensing IS expected to be included as ODC line items. The provided documents do not include the full RFQ text to verify the original or revised language.",
+      "MINOR DISCREPANCY: Q&A #62 references 'Attachment 2' as the Limitations on Subcontracting Report to be submitted 60 days prior to end of base/option periods, but the full RFQ with all attachments is not included in the provided document package, so the complete attachment cannot be verified.",
+      "NOTE: The full RFQ document (Sections 1-5 referenced extensively in Q&A) is not included in the provided package; only the PWS (Attachment 1) and the Q&A document are substantively available. Many cross-references in Q&A to 'Section 4,' 'Section 5,' 'Section 1.3,' etc. of the RFQ cannot be independently verified from the provided documents."
     ]
   },
   "proposal_outline": {
     "sections": [
       {
-        "title": "Volume I \u2014 Technical Approach (20-page limit, cover page and TOC excluded)",
+        "title": "Volume I - Technical Approach (20-page limit, excluding cover page and TOC)",
         "requirements_addressed": [
-          "PWS 3.1.1 \u2014 FedRAMP High Authorization: describe the solution's FedRAMP status, authorization boundary, inherited controls, and path to Peace Corps ATO",
-          "PWS 3.1.3 \u2014 CMS integration approach for peacecorps.gov (Django 5/Wagtail 8 agnostic)",
-          "PWS 3.1.4 \u2014 RAG architecture, hierarchical data ranking, hallucination prevention, dataset structure",
-          "PWS 3.1.5 \u2014 Continuous learning mechanisms, human-in-the-loop model updates, enabling Peace Corps staff to manage independently",
-          "PWS 3.1.6 \u2014 Optimization methodology, response time approach, computational cost balancing",
-          "PWS 3.1.9 \u2014 Multilingual support (English/Spanish minimum; additional languages as differentiator); translation quality approach including Golden Glossaries",
-          "PWS 3.1.11 \u2014 Live agent escalation, queue management logic, callback capabilities, load balancing",
-          "PWS 3.1.12 \u2014 Scalability architecture for dramatically increasing user volumes",
-          "PWS 3.1.17/3.1.18/3.1.19 \u2014 Analytics, KPI dashboard, usage reporting capabilities",
-          "PWS 3.1.20/3.1.21 \u2014 AI risk management approach, explainability, root cause analysis for incorrect responses",
-          "PWS 3.1.22 \u2014 Data governance, segmentation, masking, redaction, consent management",
-          "PWS 3.1.23 \u2014 HIPAA detection and redirect logic",
-          "PWS 3.2 through 3.4 \u2014 Post-award implementation approach and go-live timeline (evaluated as Best Value factor)",
-          "PWS 6.1 \u2014 Security and FedRAMP compliance approach, continuous monitoring plan",
-          "PWS 6.2 \u2014 Section 508/WCAG accessibility approach (VPAT)",
-          "Q&A #52/#58 \u2014 Proposed go-live timeline (evaluated in Best Value determination)"
+          "PWS Section 3.1.1 - FedRAMP High Authorization: demonstrate current authorization status or in-process documentation",
+          "PWS Section 3.1.4 - RAG architecture design and content ingestion framework",
+          "PWS Section 3.1.3 - Website integration approach for peacecorps.gov (Django/Wagtail CMS)",
+          "PWS Section 3.1.5 - Continuous learning mechanisms with human-in-the-loop",
+          "PWS Section 3.1.6 - Optimization methodology (response quality vs. computational cost)",
+          "PWS Section 3.1.9 - Multilingual functionality from English-only dataset (English and Spanish minimum)",
+          "PWS Section 3.1.11 - Live agent escalation, queue management, and routing logic",
+          "PWS Section 3.1.17/3.1.18/3.1.19 - Analytics, KPI dashboard, and usage reporting capabilities",
+          "PWS Section 3.1.20/3.1.21 - AI risk management approach and explainability",
+          "PWS Section 3.1.22/3.3.1 - Data security, FIPS 140-2 encryption, data retention and portability",
+          "PWS Section 3.1.23 - HIPAA-sensitive interaction handling and redirection",
+          "PWS Section 6.1 - FedRAMP security architecture, ATO process, and authorization boundary documentation",
+          "PWS Section 6.2 - Section 508 compliance (VPAT)",
+          "PWS Section 3.2.2 - Proposed implementation timeline and project plan approach",
+          "PWS Section 3.4 - Deployment approach including training plan for Peace Corps staff",
+          "Staffing approach and proposed subcontractor structure (demonstrating >50% prime labor)"
         ],
-        "guidance": "Lead with the FedRAMP High authorization status of the proposed solution (active or in-process with documentation), demonstrate a concrete and credible go-live timeline within the base year, and clearly articulate how the RAG architecture prevents hallucinations while enabling independent Peace Corps staff management post-deployment."
+        "guidance": "Lead with FedRAMP High authorization documentation and provide a differentiated, end-to-end solution architecture narrative that demonstrates deep understanding of the RAG-based chatbot implementation lifecycle, the ATO process dependencies, and a realistic go-live timeline that is as accelerated as quality allows, since timeline is an evaluated Best Value factor."
       },
       {
-        "title": "Volume II \u2014 Past Performance",
+        "title": "Volume II - Past Performance",
         "requirements_addressed": [
-          "RFQ Section 5, Factor B \u2014 three references, within last 3 years, similar in complexity and magnitude to PWS requirements",
-          "Q&A #3 \u2014 Key personnel past performance accepted for emerging small businesses",
-          "Q&A #105/#150 \u2014 Subcontractor past performance accepted; prime performance preferred",
-          "Q&A #134 \u2014 Commercial AI platform deployments in adjacent domains (talent acquisition, conversational AI) considered relevant",
-          "Q&A #136 \u2014 Commercial and SLED references acceptable if recent and relevant"
+          "Three references of similar efforts within last three years",
+          "Recent (within 3 years) and relevant (similar complexity and magnitude to PWS) performance",
+          "Federal AI/chatbot or conversational AI implementations preferred",
+          "Commercial references acceptable if comparable AI complexity, scale, and compliance requirements",
+          "Key personnel past performance acceptable for emerging small businesses",
+          "Subcontractor past performance acceptable (prime performance preferred)",
+          "Q&A #3 - Key personnel past performance considered for emerging small businesses",
+          "Q&A #134, #136 - Commercial and SLED references acceptable"
         ],
-        "guidance": "Prioritize references demonstrating FedRAMP-compliant AI/chatbot deployments for federal agencies or highly regulated sectors, emphasizing RAG implementation, live-agent integration, and measurable outcomes such as inquiry deflection rates, uptime, and user adoption."
+        "guidance": "Prioritize federal government past performance examples that demonstrate FedRAMP compliance, conversational AI or chatbot implementation, RAG architecture, and public-facing web integration; where federal references are limited, supplement with commercial AI examples at comparable scale and security complexity, and include key personnel examples to strengthen credibility for emerging firms."
       },
       {
-        "title": "Volume III \u2014 Assumptions, Conditions, or Exceptions",
+        "title": "Volume III - Assumptions, Conditions, or Exceptions",
         "requirements_addressed": [
-          "RFQ Section 4 \u2014 submitted under separate cover per solicitation instructions",
-          "Any assumptions made regarding undefined usage volumes, ATO timeline, or integration dependencies",
-          "Any exceptions to PWS requirements (note: CCPA removal and FedRAMP Moderate correction should be acknowledged here)"
+          "Any assumptions made in developing the technical approach due to information gaps",
+          "Any conditions required from the Government to execute the proposed solution",
+          "Any exceptions to PWS requirements or RFQ terms",
+          "Submitted under separate cover"
         ],
-        "guidance": "Keep exceptions minimal and focused on clarifications (e.g., Azure cost treatment, ATO timeline dependency, RAG content delivery schedule); use this volume to proactively address the FedRAMP High/Moderate discrepancy and CCPA removal to demonstrate thorough solicitation review."
+        "guidance": "Use sparingly and strategically; clearly document only material assumptions that affect pricing or technical approach (e.g., Government-furnished RAG content timelines, ATO process duration assumptions, CRM integration scope) to protect the offeror from scope creep while demonstrating thorough requirements analysis."
       },
       {
-        "title": "Volume IV \u2014 Draft Quality Assurance Surveillance Plan (QASP)",
+        "title": "Volume IV - Draft Quality Assurance Surveillance Plan (QASP)",
         "requirements_addressed": [
-          "PWS 3.2.1 \u2014 QASP covering all task areas and deliverables per PWS",
-          "Q&A #68 \u2014 Pre-award draft QASP serves as starting point for post-award QASP",
-          "Q&A #103 \u2014 Contractor format acceptable; must cover all required performance objectives",
-          "FAR Overhaul 46.4 \u2014 basis for QASP development",
-          "PWS Section 5.0 \u2014 Performance Requirements Summary (95% on-time delivery threshold)"
+          "PWS Section 3.2.1 - QASP covering all task areas and deliverables",
+          "FAR Overhaul 46.4 compliance",
+          "Performance thresholds for all PWS deliverables",
+          "Surveillance methodology",
+          "Draft submitted with quote serves as starting point for post-award final QASP (due 30 days after award)",
+          "Contractor's own format is acceptable"
         ],
-        "guidance": "Structure the QASP around measurable performance thresholds tied directly to PWS deliverable timelines, the 99.9% uptime SLA, chatbot response accuracy metrics, and escalation containment rates to demonstrate a rigorous quality management framework."
+        "guidance": "Develop a substantive, PWS-aligned QASP that maps each deliverable and performance objective to a measurable standard and surveillance method, demonstrating quality management maturity and reducing perceived performance risk for the Government evaluators."
       },
       {
-        "title": "Volume V \u2014 Price/Cost",
+        "title": "Volume V - Price/Cost",
         "requirements_addressed": [
-          "RFQ Section 4.3/4.4 \u2014 FFP price quote for base period and each of four option periods separately",
-          "Q&A #132 \u2014 Structure as: (1) implementation/RAG training labor, (2) Peace Corps staff training and training materials, (3) year-over-year recurring costs (usage, hosting, subscription, Tier 3 support)",
-          "Q&A #102/#122/#149 \u2014 SaaS licensing costs included as ODCs, excluded from FAR 52.219-14 50% calculation",
-          "Q&A #109 \u2014 Existing GSA/contract labor categories and rates may be used as basis with discounts",
-          "Q&A #123 \u2014 Account for dramatic but undefined traffic growth in FFP model",
-          "Q&A #35 \u2014 CSV data export format; presentable report formats (Word/PDF) considered in Best Value"
+          "FFP price for base period (June 1, 2026 - May 31, 2027)",
+          "FFP price for each of four option periods (priced separately)",
+          "Pricing structure: (1) implementation and RAG training, (2) training and training materials for administrators and users, (3) year-over-year recurring costs (usage, hosting, subscription, Tier 3 support)",
+          "SaaS licensing costs included as ODCs (excluded from FAR 52.219-14 subcontracting calculation)",
+          "Labor categories and hours for implementation and professional services",
+          "Existing contract labor categories and rates may be used as basis for discounts",
+          "Price reasonableness (not realism) analysis will be conducted",
+          "Pricing must be consistent with proposed technical solution"
         ],
-        "guidance": "Clearly separate implementation labor, training costs, and year-over-year recurring SaaS/hosting/support costs across all five periods; explicitly document assumptions about usage volume growth and any usage caps or pricing tiers built into the FFP to demonstrate transparency and price reasonableness."
+        "guidance": "Structure pricing to clearly separate SaaS/licensing ODCs from implementation labor costs, provide transparent line-item breakdowns for all five performance periods, and build conservative but competitive usage-cost assumptions into the FFP to demonstrate both price reasonableness and risk management given the undefined interaction volume growth."
       }
     ],
     "win_themes": [
-      "FedRAMP High Readiness and Security-First Architecture: Demonstrate an active or well-documented in-process FedRAMP High authorization that directly addresses the Government's stated concern about PHI/PII exposure from unsolicited user inputs, with a clear, accelerated path to Peace Corps ATO within the base year.",
-      "Operational Independence Through Human-Centered AI Design: Emphasize that Peace Corps staff \u2014 not the contractor \u2014 will own and drive continuous improvement of the chatbot post-deployment, through an intuitive RAG management interface, comprehensive training, and Tier 3 support that empowers the Agency's OCIO team rather than creating long-term vendor dependency.",
-      "Proven Recruitment Intelligence at Scale: Demonstrate measurable outcomes from analogous conversational AI deployments (lead conversion, inquiry deflection, multilingual engagement) and present a credible, phased go-live timeline that gets the chatbot live as early as possible in the base period, directly addressing Peace Corps' urgency to reduce staff workload and increase volunteer pipeline conversion."
+      "FedRAMP High-Ready, Day-One Deployable: Differentiate by demonstrating that the proposed solution holds or is actively in the FedRAMP High authorization process with documented evidence at time of submission, reducing Peace Corps' ATO risk and accelerating the path to go-live - the most critical technical gate and timeline driver in this acquisition.",
+      "Purpose-Built for Peace Corps' Public Engagement Mission: Thread throughout all volumes a deep understanding of the Peace Corps volunteer recruitment lifecycle (lead through returned volunteer), showing how the proposed RAG architecture, multilingual capability, HIPAA-sensitive escalation logic, and analytics dashboard are specifically tailored to reduce staff workload on repetitive inquiries while improving applicant conversion - the agency's primary success metrics.",
+      "Sustainable, Staff-Empowered AI Governance: Emphasize a handoff-oriented delivery model where Peace Corps OCIO staff gain full operational control post-deployment through comprehensive training, intuitive RAG management tools, and human-in-the-loop continuous learning mechanisms - reducing long-term contractor dependency and demonstrating alignment with federal AI governance and responsible AI principles."
     ]
   }
 }
