@@ -1,11 +1,63 @@
-# Past performance decks contain real client data — keep off GitHub
+# Past performance decks — review case-by-case before committing.
+# (Currently synthetic for portfolio, but if real client material is ever added,
+# this excludes it by default.)
 Past Performance/
+
+# Sample contract folders, extracted outputs, eval artifacts — keep local.
+# These are regeneratable from sam_fetcher.py + the writers, and the eval
+# workbook contains candid analysis not intended for public consumption.
+Sample Contracts/
+evals/
+
+# Generated proposal/PP draft outputs — regeneratable, keep local
+*_proposal_draft.docx
+*_past_performance_draft.docx
+*_compliance_matrix.docx
+*_full_extraction.json
+*_raw_extraction.txt
+*_extracted.json
+*_extracted.txt
+
+# Vector store — large and fully rebuildable
+chroma_db/
 
 # Python
 __pycache__/
 *.py[cod]
+*$py.class
+*.so
 *.egg-info/
+*.egg
+*.whl
+build/
+dist/
+
+# Environment / secrets
 .env
+.env.local
+*.env.local
+*.secret
+secrets.json
+.envrc
+
+# Virtual environments
+venv/
+.venv/
+env/
+ENV/
+
+# IDE / editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Coverage / testing
+.coverage
+htmlcov/
+.pytest_cache/
+.tox/
 
 # OS
 .DS_Store
